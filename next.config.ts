@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: "",
+  basePath: "/lucky-pdd",
   assetPrefix: "/lucky-pdd",
 };
 
