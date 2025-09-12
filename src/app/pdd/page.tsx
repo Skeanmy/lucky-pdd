@@ -73,10 +73,11 @@ export default function PddPage() {
     return (price / 100).toFixed(2);
   };
 
-  const handleProductClick = (item: GoodsItem) => {
+  const handleProductClick = (item: GoodsItem, skuIndex: number) => {
+    console.log("item", item);
     // 这里可以添加跳转逻辑，比如打开新窗口或路由跳转
     // window.open(`https://mobile.yangkeduo.com/${item.goodsPageUrl}`, "_blank");
-    const url = `pinduoduo://com.xunmeng.pinduoduo/order_checkout.html?sku_id=${item.skuIdList[0]}&goods_id=${item.goodsId}&goods_number=1`;
+    const url = `pinduoduo://com.xunmeng.pinduoduo/order_checkout.html?sku_id=${item.skuIdList[skuIndex]}&goods_id=${item.goodsId}&goods_number=1`;
     console.log("url", url);
     // window.open(url, "_blank");
     window.location.href = url;
@@ -229,7 +230,7 @@ export default function PddPage() {
 
                           <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                             <button
-                              onClick={() => handleProductClick(item)}
+                              onClick={() => handleProductClick(item, skuIndex)}
                               className="text-blue-600 hover:text-blue-900 bg-blue-50 hover:bg-blue-100 px-3 py-1 rounded-md transition-colors"
                             >
                               查看商品
