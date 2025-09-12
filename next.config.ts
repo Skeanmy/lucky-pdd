@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   basePath: "/lucky-pdd",
-  assetPrefix: "/lucky-pdd",
+  // assetPrefix: "/lucky-pdd",
 };
 
 export default nextConfig;
