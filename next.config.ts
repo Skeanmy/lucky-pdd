@@ -4,6 +4,12 @@ const nextConfig: NextConfig = {
   /* config options here */
   output: "export",
   distDir: "docs",
+  trailingSlash: true,
+  images: {
+    unoptimized: true,
+  },
+  basePath: "",
+  assetPrefix: "/lucky-pdd",
 };
 
 export default nextConfig;
