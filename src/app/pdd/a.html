@@ -1,0 +1,6174 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="utf-8">
+  <script>
+    ! function (t) {
+      var e = t._plt = t._plt || [];
+      e.push(["tm", "ps", +new Date]), (t.requestAnimationFrame || t.webkitRequestAnimationFrame || t.setTimeout)(
+        function () {
+          e.push(["tm", "fraf", +new Date])
+        })
+    }(window);
+    ! function () {
+      if ("PerformanceLongTaskTiming" in window) {
+        var g = window.__tti = {
+          e: []
+        };
+        g.o = new PerformanceObserver(function (l) {
+          g.e = g.e.concat(l.getEntries())
+        });
+        g.o.observe({
+          entryTypes: ["longtask"]
+        })
+      }
+    }();
+    ! function () {
+      var e, t, n, i, r = {
+          passive: !0,
+          capture: !0
+        },
+        a = new Date,
+        o = function () {
+          i = [], t = -1, e = null, f(addEventListener)
+        },
+        c = function (i, r) {
+          e || (e = r, t = i, n = new Date, f(removeEventListener), u())
+        },
+        u = function () {
+          if (t >= 0 && t < n - a) {
+            var r = {
+              entryType: "first-input",
+              name: e.type,
+              target: e.target,
+              cancelable: e.cancelable,
+              startTime: e.timeStamp,
+              processingStart: e.timeStamp + t
+            };
+            i.forEach((function (e) {
+              e(r)
+            })), i = []
+          }
+        },
+        s = function (e) {
+          if (e.cancelable) {
+            var t = (e.timeStamp > 1e12 ? new Date : performance.now()) - e.timeStamp;
+            "pointerdown" == e.type ? function (e, t) {
+              var n = function () {
+                  c(e, t), a()
+                },
+                i = function () {
+                  a()
+                },
+                a = function () {
+                  removeEventListener("pointerup", n, r), removeEventListener("pointercancel", i, r)
+                };
+              addEventListener("pointerup", n, r), addEventListener("pointercancel", i, r)
+            }(t, e) : c(t, e)
+          }
+        },
+        f = function (e) {
+          ["mousedown", "keydown", "touchstart", "pointerdown"].forEach((function (t) {
+            return e(t, s, r)
+          }))
+        },
+        p = "hidden" === document.visibilityState ? 0 : 1 / 0;
+      addEventListener("visibilitychange", (function e(t) {
+        "hidden" === document.visibilityState && (p = t.timeStamp, removeEventListener("visibilitychange", e, !0))
+      }), !0);
+      o(), self.webVitals = {
+        firstInputPolyfill: function (e) {
+          i.push(e), u()
+        },
+        resetFirstInputPolyfill: o,
+        get firstHiddenTime() {
+          return p
+        }
+      }
+    }();
+  </script>
+  <link rel="dns-prefetch" href="//apiv4.yangkeduo.com">
+  <link rel="dns-prefetch" href="//api.pinduoduo.com">
+  <link rel="dns-prefetch" href="//funimg.pddpic.com">
+  <link rel="dns-prefetch" href="//omsproduction.yangkeduo.com">
+  <link rel="dns-prefetch" href="//avatar.yangkeduo.com">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Cache-Control" content="no-cache,no-store,must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta property="og:title" content="拼多多商城">
+  <meta property="og:description" content="风靡全国的拼团商城，优质商品新鲜直供，快来一起拼多多吧">
+  <meta property="og:image" content="https://funimg.pddpic.com/base/share_logo.jpg">
+  <title>商品收藏</title>
+  <script>
+    window.__ERROR_FILTER_LIST__ = {
+      "filterList": [{
+        "fields": {
+          "errorMsg": "Error call native .*:.* cost over 1000ms",
+          "errorCode": "555555"
+        }
+      }, {
+        "fields": {
+          "errorMsg": "initShareAndMenu 调用超时"
+        }
+      }, {
+        "fields": {
+          "platform": "unknown"
+        },
+        "eventType": 500,
+        "sampleRate": 0.01
+      }, {
+        "fields": {
+          "platform": "^(?!unknown)"
+        },
+        "eventType": 500,
+        "sampleRate": 0.1
+      }, {
+        "fields": {
+          "platform": ".*"
+        },
+        "eventType": 500,
+        "sampleRate": 0.1
+      }, {
+        "fields": {
+          "errorMsg": "html_error_img|lazy_image_error|cui_image_error"
+        },
+        "eventType": 501,
+        "sampleRate": 0.01
+      }, {
+        "fields": {
+          "errorCode": "555555|555556",
+          "platform": "^(?!unknown)"
+        },
+        "eventType": 501,
+        "sampleRate": 0.1
+      }, {
+        "fields": {
+          "platform": "unknown"
+        },
+        "eventType": 501,
+        "sampleRate": 0.01
+      }, {
+        "fields": {
+          "page": "Loading.* chunk .* failed"
+        }
+      }, {
+        "fields": {
+          "errorMsg": "Cannot read|set property '.*?' of null|undefined",
+          "platform": "unknown"
+        }
+      }, {
+        "fields": {
+          "errorMsg": "ReferenceError: Can't find variable: WebViewJavascriptBridge",
+          "platform": "unknown"
+        }
+      }, {
+        "fields": {
+          "errorMsg": "undefined is not an object \\(evaluating 'this.pages"
+        }
+      }, {
+        "fields": {
+          "errorMsg": "^Cannot read properties of null|undefined \\(reading 'length|-1'\\)$"
+        }
+      }, {
+        "fields": {
+          "errorMsg": "^Cannot convert undefined or null to object.*inject-with-store"
+        }
+      }, {
+        "fields": {
+          "errorMsg": "Cannot.*?redefine.*?property.*?navigator"
+        }
+      }, {
+        "fields": {
+          "errorMsg": "^Request aborted$",
+          "platform": "unknown"
+        }
+      }],
+      "replaceList": [{
+        "fields": {
+          "platform": "unknown"
+        },
+        "sampleRate": 0.01,
+        "replaceErrorCode": 700000
+      }, {
+        "fields": {
+          "errorMsg": "callNative .* error"
+        },
+        "replaceErrorCode": 700001
+      }, {
+        "fields": {
+          "page": "{\"errMsg\":\"config"
+        },
+        "sampleRate": 0.2,
+        "replaceErrorCode": 700001
+      }, {
+        "fields": {
+          "page": "goto-app: launch_pdd_app_fail"
+        },
+        "replaceErrorCode": 700001
+      }, {
+        "fields": {
+          "page": "唤起App失败"
+        },
+        "replaceErrorCode": 700001
+      }, {
+        "fields": {
+          "page": "timeout after 5000ms"
+        },
+        "replaceErrorCode": 700001
+      }, {
+        "fields": {
+          "errorMsg": "商品勾选状态更新失败"
+        },
+        "replaceErrorCode": 700001
+      }, {
+        "fields": {
+          "errorMsg": "Network Error"
+        },
+        "replaceErrorCode": 700001
+      }, {
+        "fields": {
+          "errorMsg": "^undefined$"
+        },
+        "replaceErrorCode": 700001
+      }, {
+        "fields": {
+          "errorMsg": "Request failed with status code 400"
+        },
+        "replaceErrorCode": 700001
+      }]
+    };
+  </script>
+  <script>
+    var initInlineLogger = function () {
+      function r(r, e) {
+        (null == e || e > r.length) && (e = r.length);
+        for (var n = 0, t = Array(e); n < e; n++) t[n] = r[n];
+        return t
+      }
+
+      function e(r, e) {
+        var n = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
+        if (!n) {
+          if (Array.isArray(r) || (n = u(r)) || e && r && "number" == typeof r.length) {
+            n && (r = n);
+            var t = 0,
+              o = function () {};
+            return {
+              s: o,
+              n: function () {
+                return t >= r.length ? {
+                  done: !0
+                } : {
+                  done: !1,
+                  value: r[t++]
+                }
+              },
+              e: function (r) {
+                throw r
+              },
+              f: o
+            }
+          }
+          throw new TypeError(
+            "Invalid attempt to iterate non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+            )
+        }
+        var i, a = !0,
+          d = !1;
+        return {
+          s: function () {
+            n = n.call(r)
+          },
+          n: function () {
+            var r = n.next();
+            return a = r.done, r
+          },
+          e: function (r) {
+            d = !0, i = r
+          },
+          f: function () {
+            try {
+              a || null == n.return || n.return()
+            } finally {
+              if (d) throw i
+            }
+          }
+        }
+      }
+
+      function n(r, e, n) {
+        return (e = function (r) {
+          var e = function (r, e) {
+            if ("object" != typeof r || !r) return r;
+            var n = r[Symbol.toPrimitive];
+            if (void 0 !== n) {
+              var t = n.call(r, e || "default");
+              if ("object" != typeof t) return t;
+              throw new TypeError("@@toPrimitive must return a primitive value.")
+            }
+            return ("string" === e ? String : Number)(r)
+          }(r, "string");
+          return "symbol" == typeof e ? e : e + ""
+        }(e)) in r ? Object.defineProperty(r, e, {
+          value: n,
+          enumerable: !0,
+          configurable: !0,
+          writable: !0
+        }) : r[e] = n, r
+      }
+
+      function t(r, e) {
+        var n = Object.keys(r);
+        if (Object.getOwnPropertySymbols) {
+          var t = Object.getOwnPropertySymbols(r);
+          e && (t = t.filter((function (e) {
+            return Object.getOwnPropertyDescriptor(r, e).enumerable
+          }))), n.push.apply(n, t)
+        }
+        return n
+      }
+
+      function o(r) {
+        for (var e = 1; e < arguments.length; e++) {
+          var o = null != arguments[e] ? arguments[e] : {};
+          e % 2 ? t(Object(o), !0).forEach((function (e) {
+              n(r, e, o[e])
+            })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(r, Object.getOwnPropertyDescriptors(o)) :
+            t(Object(o)).forEach((function (e) {
+              Object.defineProperty(r, e, Object.getOwnPropertyDescriptor(o, e))
+            }))
+        }
+        return r
+      }
+
+      function i(r, e) {
+        return function (r) {
+          if (Array.isArray(r)) return r
+        }(r) || function (r, e) {
+          var n = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
+          if (null != n) {
+            var t, o, i, a, d = [],
+              u = !0,
+              s = !1;
+            try {
+              if (i = (n = n.call(r)).next, 0 === e) {
+                if (Object(n) !== n) return;
+                u = !1
+              } else
+                for (; !(u = (t = i.call(n)).done) && (d.push(t.value), d.length !== e); u = !0);
+            } catch (r) {
+              s = !0, o = r
+            } finally {
+              try {
+                if (!u && null != n.return && (a = n.return(), Object(a) !== a)) return
+              } finally {
+                if (s) throw o
+              }
+            }
+            return d
+          }
+        }(r, e) || u(r, e) || function () {
+          throw new TypeError(
+            "Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+            )
+        }()
+      }
+
+      function a(e) {
+        return function (e) {
+          if (Array.isArray(e)) return r(e)
+        }(e) || function (r) {
+          if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array
+            .from(r)
+        }(e) || u(e) || function () {
+          throw new TypeError(
+            "Invalid attempt to spread non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+            )
+        }()
+      }
+
+      function d(r) {
+        return d = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (r) {
+          return typeof r
+        } : function (r) {
+          return r && "function" == typeof Symbol && r.constructor === Symbol && r !== Symbol.prototype ? "symbol" :
+            typeof r
+        }, d(r)
+      }
+
+      function u(e, n) {
+        if (e) {
+          if ("string" == typeof e) return r(e, n);
+          var t = {}.toString.call(e).slice(8, -1);
+          return "Object" === t && e.constructor && (t = e.constructor.name), "Map" === t || "Set" === t ? Array.from(
+            e) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? r(e, n) : void 0
+        }
+      }
+
+      function s(r) {
+        return r.replace(/(%[0-9A-Z]{2})+/g, decodeURIComponent)
+      }
+
+      function c(r) {
+        var e = document.cookie ? document.cookie.split("; ") : [],
+          n = {};
+        return e.some((function (e) {
+          var t = e.split("="),
+            o = t.slice(1).join("="),
+            i = s(t[0]);
+          return o = s(o), n[i] = o, r === i
+        })), r ? n[r] || "" : n
+      }
+      String.prototype.includes || (String.prototype.includes = function (r, e) {
+        return "number" != typeof e && (e = 0), !(e + r.length > this.length) && -1 !== this.indexOf(r, e)
+      }), Array.prototype.includes || Object.defineProperty(Array.prototype, "includes", {
+        value: function (r, e) {
+          if (null == this) throw new TypeError("this is null or not defined");
+          var n = Object(this),
+            t = n.length >>> 0;
+          if (0 === t) return !1;
+          var o, i, a = 0 | e,
+            d = Math.max(a >= 0 ? a : t - Math.abs(a), 0);
+          for (; d < t;) {
+            if ((o = n[d]) === (i = r) || "number" == typeof o && "number" == typeof i && isNaN(o) && isNaN(i))
+              return !0;
+            d++
+          }
+          return !1
+        }
+      });
+      var f = function () {
+        for (var r, e = [], n = 0; n < 256; n++) {
+          r = n;
+          for (var t = 0; t < 8; t++) r = 1 & r ? 3988292384 ^ r >>> 1 : r >>> 1;
+          e[n] = r
+        }
+        return e
+      }();
+
+      function l(r) {
+        var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 0;
+        r = function (r) {
+          for (var e = "", n = 0; n < r.length; n++) {
+            var t = r.charCodeAt(n);
+            t < 128 ? e += String.fromCharCode(t) : t < 2048 ? e += String.fromCharCode(192 | t >> 6) + String
+              .fromCharCode(128 | 63 & t) : t < 55296 || t >= 57344 ? e += String.fromCharCode(224 | t >> 12) +
+              String.fromCharCode(128 | t >> 6 & 63) + String.fromCharCode(128 | 63 & t) : (t = 65536 + ((1023 &
+                  t) << 10 | 1023 & r.charCodeAt(++n)), e += String.fromCharCode(240 | t >> 18) + String
+                .fromCharCode(128 | t >> 12 & 63) + String.fromCharCode(128 | t >> 6 & 63) + String.fromCharCode(
+                  128 | 63 & t))
+          }
+          return e
+        }(r), e ^= -1;
+        for (var n = 0; n < r.length; n++) e = e >>> 8 ^ f[255 & (e ^ r.charCodeAt(n))];
+        return (-1 ^ e) >>> 0
+      }
+      var p = function (r) {
+        var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 100,
+          n = arguments.length > 2 ? arguments[2] : void 0;
+        if ("function" != typeof r || null != n && "function" != typeof n) throw new TypeError(
+          "Expected a function");
+        var t = [],
+          o = [];
+        return function () {
+          for (var i = arguments.length, a = new Array(i), d = 0; d < i; d++) a[d] = arguments[d];
+          var u = n ? n.apply(this, a) : a[0],
+            s = o.indexOf(u);
+          if (s > -1) return t[s];
+          var c = r.apply(this, a);
+          return t.push(c), o.push(u), t.length > e && (o.shift(), t.shift()), c
+        }
+      }((function (r) {
+        return (r = "?" === r[0] ? r.slice(1) : r).split("&").reduce((function (r, e) {
+          if (e) {
+            var n = i(function (r, e) {
+                if ("" === e) return [r];
+                var n = r.indexOf(e);
+                return -1 === n ? [r] : [r.slice(0, n), r.slice(n + e.length)]
+              }(e, "="), 2),
+              t = n[0],
+              o = n[1],
+              a = void 0 === o ? "" : o;
+            try {
+              r[decodeURIComponent(t)] = decodeURIComponent(a)
+            } catch (r) {
+              d = r, console.error("node端不支持throwErrorAsync", d)
+            }
+          }
+          var d;
+          return r
+        }), {})
+      }));
+      var v = {
+          MiniProgram: /miniprogram/i,
+          WeChat: /MicroMessenger/i,
+          QQ: /QQ\/[\d\.]+\s+/i,
+          QQAndQzone: /(QQ\/[\d\.]+\s+)|Qzone/i,
+          QQApp: /QQ\//i,
+          Weibo: /Weibo/i,
+          Ios: /iphone|ipad|ipod/i,
+          IosVersion: /os (\d+)_(\d+)_?(\d+)?/i,
+          Android: /Android/i,
+          AndroidVersion: /Android (\d+).?(\d+)?.?(\d+)?/i,
+          AndroidNative: /phh_android_version/i,
+          IosNative: /phh_ios_version/i,
+          IosApiRequest: /BundleID\/com.xunmeng.pinduoduo/i,
+          Mobile: /Android|webOS|iPhone|iPad|iPod/i,
+          AndroidNativeVersion: /(phh_android_version)\/([^\s]+)\s*/i,
+          IosNativeVersion: /(phh_ios_version|AppVersion)\/([^\s]+)\s*/i,
+          Harmony: /OpenHarmony/i,
+          HarmonyVersion: /OpenHarmony (\d+).?(\d+)?.?(\d+)?/i,
+          HarmonyNative: /phh_harmony_version/i,
+          HarmonyNativeVersion: /(phh_harmony_version)\/([^\s]+)\s*/i,
+          MecoWebViewCore: /MecoCore\/(\d)/i,
+          MecoWebViewSdk: /MecoSDK\/(\d)/i
+        },
+        m = "unknown",
+        g = "ios",
+        h = "android",
+        y = "tinyAndroid",
+        _ = "wechat",
+        w = "weibo",
+        b = "qq",
+        S = "qqapp",
+        A = "wxapp",
+        O = "android",
+        I = "ios",
+        C = "harmony",
+        R = "unknown";
+
+      function E(r, e) {
+        [r, e].forEach((function (r) {
+          if ("string" != typeof r) throw new TypeError("Invalid argument expected string")
+        }));
+        for (var n = function (r) {
+            return r.split(".").map((function (r) {
+              return parseInt(r, 10) || 0
+            }))
+          }, t = n(r), o = n(e), i = Math.max(t.length, o.length), a = 0; a < i; ++a) {
+          var d = t[a] || 0,
+            u = o[a] || 0;
+          if (d !== u) return d - u
+        }
+        return 0
+      }
+
+      function M() {
+        var r = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "";
+        return v.MiniProgram.test(r) || "undefined" != typeof window && "miniprogram" === window.__wxjs_environment
+      }
+
+      function N(r) {
+        return v.Ios.test(r) ? I : v.Android.test(r) ? O : v.Harmony.test(r) ? C : R
+      }
+
+      function j() {
+        var r = function () {
+            var r = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "";
+            return v.AndroidNative.test(r) ? r.includes("app_type/tiny") ? y : h : v.IosNative.test(r) || v
+              .IosApiRequest.test(r) ? g : v.WeChat.test(r) ? M(r) ? A : _ : v.HarmonyNative.test(r) ? y : v.Weibo
+              .test(r) ? w : v.QQApp.test(r) && M(r) ? S : v.QQAndQzone.test(r) ? b : m
+          }(navigator.userAgent),
+          e = r === h,
+          n = r === g,
+          t = e || n,
+          o = r === y,
+          i = /phh_harmony_version/i.test(navigator.userAgent),
+          a = t && function (r, e) {
+            return function (r, e) {
+              var n = r.match(e);
+              return n && n[2] || ""
+            }(r, e === h ? v.AndroidNativeVersion : v.IosNativeVersion)
+          }(navigator.userAgent, r);
+        return {
+          isNativePlatform: t,
+          isAndroid: e,
+          isIos: n,
+          isTinyNativePlatform: o,
+          isHarmonyNativePlatform: i,
+          platform: r,
+          version: a
+        }
+      }
+      var x = "pdd_ban_report_domains",
+        T = "undefined" != typeof window,
+        P = !1,
+        k = !1,
+        V = !1,
+        L = !1,
+        Q = {},
+        q = {},
+        D = {},
+        F = {
+          th: "th",
+          ta: "ta",
+          pmm: "pmm",
+          abtk: "abtk"
+        },
+        z = n(n(n({}, F.th, ["sandbox-tk.pdd.net"]), F.ta, ["sandbox-tk.pdd.net"]), F.pmm, ["apm.hutaojie.com"]),
+        H = n(n(n(n({}, F.th, ["th-a", "th-b", "th"]), F.ta, ["ta-a", "ta"]), F.pmm, ["apm-a", "apm"]), F.abtk, [
+          "abtk"
+        ]);
+
+      function J() {
+        if (k) try {
+          0 === Object.keys(D).length ? localStorage.removeItem(x) : localStorage.setItem(x, JSON.stringify(D))
+        } catch (r) {
+          console.error(r)
+        }
+      }
+
+      function W(r, e) {
+        var n = Date.now();
+        if (e) {
+          if (D[r]) {
+            var t = (D[r] || {}).errorFreq,
+              o = void 0 === t ? 0 : t;
+            o <= 1 ? delete D[r] : D[r] = {
+              errorFreq: o - 1,
+              lastSuccTime: n
+            }, J()
+          }
+        } else {
+          var i = (D[r] || {}).errorFreq,
+            a = void 0 === i ? 0 : i;
+          D[r] = {
+            errorFreq: Math.min(a + 1, 5),
+            lastFailTime: n
+          }, J()
+        }
+      }
+
+      function U() {
+        if (!P && T) {
+          V = -1 !== location.hostname.indexOf("hutaojie");
+          var r, e, n = j(),
+            t = n.isNativePlatform,
+            o = n.isIos,
+            i = n.isTinyNativePlatform;
+          if (L = t || i, V) Q = z;
+          else {
+            Q = JSON.parse(JSON.stringify(H)), o && "loading" === document.readyState ? (console.error(
+              "[uniReporter] ios without DOMContentLoaded, use default domains"), k = !1) : (! function () {
+              try {
+                var r = localStorage.getItem(x);
+                if (!r) return;
+                D = JSON.parse(r)
+              } catch (r) {
+                console.error(r)
+              }
+            }(), function () {
+              try {
+                var r = c("pdd_c_h5_report_domains");
+                if (!r) return;
+                var e = JSON.parse(r);
+                Object.values(F).forEach((function (r) {
+                  var n = e[r];
+                  n && n instanceof Array && n.length >= 1 && (Q[r] = n, q[r] = !0)
+                }))
+              } catch (r) {
+                console.error(r)
+              }
+            }(), k = !0);
+            var d = -1 !== location.hostname.indexOf("yangkeduo.com") ? "yangkeduo" : "pinduoduo",
+              u = (r = c().api_uid, e = void 0 === r ? "" : r, Math.abs(function (r) {
+                for (var e = 0, n = 0; n < r.length; n++) e = (e << 5) - e + r.charCodeAt(n), e &= e;
+                return e
+              }(e.replace("==", ""))));
+            Object.values(F).forEach((function (r) {
+              var e = u % Q[r].length;
+              Q[r] = [Q[r][e]].concat(a(Q[r].filter((function (r, n) {
+                return n !== e
+              })))).map((function (e) {
+                return e + "." + ([F.pmm, F.abtk].indexOf(r) > -1 ? "pinduoduo" : d) + ".com"
+              }))
+            }))
+          }
+          P = k
+        }
+      }
+
+      function G(r, e, n) {
+        return new Promise((function (t, o) {
+          var i = 0,
+            a = function () {
+              if (i >= e.length) return console.error("[uniReporter] all domains fail", e), void t(!1);
+              var o = e[i];
+              (function (e) {
+                return new Promise((function (n, t) {
+                  var o = setTimeout((function () {
+                      t(new Error("[uniReporter] timeout 1200ms"))
+                    }), 1200),
+                    i = function (r) {
+                      clearTimeout(o), n(r)
+                    },
+                    a = function (r) {
+                      clearTimeout(o), t(r)
+                    };
+                  if (L) window.pinbridge.callNative("JSNetwork", "request", {
+                    method: "POST",
+                    url: e,
+                    headers: {
+                      "Content-Type": "text/plain;charset=UTF-8"
+                    },
+                    data: r
+                  }, (function (r) {
+                    i(r)
+                  }), (function (r, e) {
+                    var n = new Error("[uniReporter] JSNetwork.request error: " + e);
+                    a(n)
+                  }));
+                  else {
+                    var d = new XMLHttpRequest;
+                    d.open("POST", e, !0), d.setRequestHeader("Content-Type",
+                        "text/plain;charset=UTF-8"), d.withCredentials = !0, d.send(r), d.onload =
+                      function () {
+                        var r = d.status;
+                        r >= 200 && r < 300 || 413 === r || 512 === r ? i(d.responseText) : a(d
+                          .statusText)
+                      }, d.onerror = function (r) {
+                        a(r)
+                      }
+                  }
+                }))
+              })(n(o)).then((function () {
+                W(o, !0), t(!0)
+              })).catch((function (r) {
+                W(o, !1), console.error("[uniReporter] xhr fail:", o, i, r), i++, a()
+              }))
+            };
+          a()
+        }))
+      }
+
+      function $(r) {
+        var e = a(Q[r]);
+        return q[r] || (e = function (r) {
+          var e = !1;
+          Object.keys(D).forEach((function (r) {
+            var n = D[r],
+              t = n.lastFailTime,
+              o = void 0 === t ? 0 : t,
+              i = n.lastSuccTime,
+              a = void 0 === i ? 0 : i;
+            Math.max(o, a) < Date.now() - 6e5 && (delete D[r], e = !0)
+          })), e && J(), r.sort((function (r, e) {
+            var n = D[r] || {},
+              t = n.errorFreq,
+              o = void 0 === t ? 0 : t,
+              i = n.lastSuccTime,
+              a = void 0 === i ? 0 : i,
+              d = n.lastFailTime,
+              u = void 0 === d ? 0 : d,
+              s = D[e] || {},
+              c = s.errorFreq,
+              f = void 0 === c ? 0 : c,
+              l = s.lastSuccTime,
+              p = void 0 === l ? 0 : l,
+              v = s.lastFailTime,
+              m = void 0 === v ? 0 : v;
+            return o !== f ? o - f : a !== p ? p - a : u !== m ? u - m : 0
+          }));
+          var n = r.filter((function (r) {
+            return !D[r] || D[r].errorFreq < 5
+          }));
+          return 0 === n.length ? [r[0]] : n
+        }(e)), e
+      }
+
+      function K(r, e, n) {
+        return P || U(), G(e, $(r), n)
+      }
+
+      function B(r) {
+        if (!r || !r.stack) return "";
+        var e = r.stack.replace(/\\n/gi, "").split(/\bat\b/).slice(0, 5).join("@").replace(/\?[^:]+/gi, ""),
+          n = r.toString();
+        return e.indexOf(n) < 0 ? n + "@" + e : e
+      }
+      T && (window.$uniReport = K);
+      var X, Z, Y = 5,
+        rr = 501,
+        er = 502,
+        nr = 600,
+        tr = "undefined" == typeof window || (window.location.hostname.includes("m.hutaojie.com") || window.location
+          .hostname.includes("panduoduo.yangkeduo.com") || ["development", "testing", "panduoduo"].includes((X =
+            "prod_env", "undefined" != typeof window && window.__ERROR_LOGGER_ENV__ ? (window
+              .__ERROR_LOGGER_ENV__ || {})[X] : "")) || "http:" === window.location.protocol),
+        or = void 0,
+        ir = {
+          IosVersion: /(pddmt_ios_version)\/([^\s]+)\s*/i,
+          AndroidVersion: /(pddmt_android_version)\/([^\s]+)\s*/i,
+          MacVersion: /(pddMerchant_mac_version)\/([^\s]+)\s*/i
+        };
+
+      function ar() {
+        if (void 0 !== or) return or;
+        var r = navigator.userAgent,
+          e = [ir.IosVersion, ir.AndroidVersion, ir.MacVersion].find((function (e) {
+            return e.test(r)
+          })),
+          n = r.match(e);
+        return or = "", n && (or = n[2] || ""), or
+      }
+      var dr, ur, sr = function (r) {
+          if (Z) return Z;
+          var e, t, o = tr ? n(n(n(n({}, h, "1"), g, "3"), y, "0"), "harmony", "204") : n(n(n(n({}, h, "3"), g, "5"),
+            y, "59"), "harmony", "334");
+          return Z = o[r] || (e = navigator.userAgent, t = "unkonwn", ir.IosVersion.test(e) ? t = "pddmt_ios" : ir
+            .AndroidVersion.test(e) ? t = "pddmt_android" : ir.MacVersion.test(e) && (t = "pdd_merchant_mac"), (tr ?
+              n(n(n({}, "pddmt_android", "2"), "pddmt_ios", "4"), "pdd_merchant_mac", "171") : n(n(n({},
+                "pddmt_android", "4"), "pddmt_ios", "6"), "pdd_merchant_mac", "304"))[t]) || "-1"
+        },
+        cr = (dr = function () {
+          var r = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [],
+            e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : [],
+            n = arguments.length > 2 ? arguments[2] : void 0;
+          if (n) return n;
+          var t = window.location.pathname;
+          if (r.indexOf(t) < 0 || e.length <= 0) return t;
+          var i, a = window.location.search,
+            d = e.find((function (r) {
+              return a.indexOf(r) > -1
+            }));
+          if (d) {
+            var u = function (r) {
+              return o({}, p(r))
+            }(a);
+            i = u[d]
+          }
+          return i ? "/" === i[0] ? i + ".html" : "/" + i + ".html" : t
+        }, ur = null, function () {
+          if (!ur) {
+            for (var r = arguments.length, e = new Array(r), n = 0; n < r; n++) e[n] = arguments[n];
+            ur = dr.apply(null, e)
+          }
+          return ur
+        });
+      var fr, lr, pr = {
+        platform: "p",
+        osVer: "osV",
+        pddId: "pid",
+        userId: "uid"
+      };
+
+      function vr(r) {
+        var n;
+        if (!(window.__ERROR_SAMPLE_RATE__ && Math.random() > window.__ERROR_SAMPLE_RATE__ || function (r) {
+            try {
+              var n, t = r.common_tags,
+                o = void 0 === t ? {} : t,
+                i = r.datas[0],
+                a = i.extras,
+                d = void 0 === a ? {} : a,
+                u = i.tags,
+                s = void 0 === u ? {} : u,
+                c = i.type,
+                f = window.__ERROR_FILTER_LIST__ || {},
+                l = f.filterList,
+                p = void 0 === l ? [] : l,
+                v = f.replaceList,
+                m = void 0 === v ? [] : v,
+                g = function (r) {
+                  var e = r.eventType,
+                    n = void 0 === e ? 502 : e,
+                    t = r.fields;
+                  return +c === +n && Object.keys(t).every((function (r) {
+                    var e = r,
+                      n = s;
+                    return pr[r] ? (n = o, e = pr[r]) : r.startsWith("common.") ? (n = o, e = r.substring(
+                      7)) : r.startsWith("payload.") && (n = d, e = r.substring(8)), new RegExp(t[r]).test(n[
+                        e])
+                  }))
+                },
+                h = function (r, e) {
+                  if (void 0 !== r.sampleRate) {
+                    var n = "number" != typeof r.sampleRate || r.sampleRate < 0 || r.sampleRate > 1 ? 1 : r
+                      .sampleRate;
+                    return Math.random() > n
+                  }
+                  return e
+                },
+                y = e(p);
+              try {
+                for (y.s(); !(n = y.n()).done;) {
+                  var _ = n.value;
+                  if (g(_)) return h(_, !0)
+                }
+              } catch (r) {
+                y.e(r)
+              } finally {
+                y.f()
+              }
+              var w, b = e(m);
+              try {
+                for (b.s(); !(w = b.n()).done;) {
+                  var S = w.value;
+                  if (g(S)) {
+                    var A = s.errorCode;
+                    return s.errorCode = "" + S.replaceErrorCode, d.originErrorCode = A, h(S, !1)
+                  }
+                }
+              } catch (r) {
+                b.e(r)
+              } finally {
+                b.f()
+              }
+            } catch (r) {}
+            return !1
+          }(r))) {
+          var t = null == r || null === (n = r.datas[0]) || void 0 === n ? void 0 : n.type,
+            o = JSON.stringify(r);
+          K(F.pmm, o, (function (r) {
+            return function (r, e) {
+              return "https://" + (tr ? "apm.hutaojie.com" : e) + (r === nr ? "/api/pmm/front_log" :
+                "/api/pmm/front_err")
+            }(t, r)
+          })).catch((function (r) {
+            return console.error("@pdd/error-logger uniReport error", r)
+          }))
+        }
+      }
+
+      function mr(r) {
+        var e, n = r || {},
+          t = n.bizSide,
+          o = n.appId,
+          i = n.testAppId,
+          a = n.app_version,
+          d = function (r) {
+            var e = r.bizSide,
+              n = r.appId,
+              t = r.testAppId;
+            if ("undefined" != typeof window) {
+              var o = {
+                bizSide: "consumer-platform-fe"
+              };
+              return e && (o.bizSide = e), tr && !t ? (console.error("缺少 testAppId 测试环境应用 id"), o) : n ? (o.appId =
+                tr ? t : n, o) : (console.error("缺少 appId 正式环境环境应用 id"), o)
+            }
+            return {}
+          }({
+            bizSide: t,
+            appId: o,
+            testAppId: i
+          }),
+          u = Date.now(),
+          s = Math.pow(10, 5) + Math.floor(Math.random() * (Math.pow(10, 6) - Math.pow(10, 5)));
+        return fr = void 0 !== fr ? fr : Number(null === (e = a || "") || void 0 === e ? void 0 : e.split(".").reduce(
+          (function (r, e, n) {
+            return 0 === n ? r + e : "" + r + (e.length < 2 ? "0" + e : e)
+          }), "")), {
+          biz_side: d.bizSide,
+          app: d.appId,
+          level: 2,
+          version: fr,
+          report_time_ms: u,
+          rand_num: s,
+          crc32: l(u + "-" + s)
+        }
+      }
+
+      function gr(r, e) {
+        var n = sr(r);
+        lr = lr || c("ETag") || c("api_uid");
+        var t = function (r) {
+          var e = N(r),
+            n = "";
+          if (e === I && (n = v.IosVersion), e === O && (n = v.AndroidVersion), e === C && (n = v.HarmonyVersion),
+            n) {
+            var t = r.match(n);
+            return (t ? [t[1], t[2], t[3]].map((function (r) {
+              return r ? parseInt(r, 10) : 0
+            })) : []).join(".")
+          }
+          return ""
+        }(navigator.userAgent);
+        return {
+          p: r,
+          runningPlatform: r,
+          runningAppId: n,
+          b: "",
+          did: "",
+          mid: "",
+          osV: N(navigator.userAgent) + "_" + t,
+          pid: lr,
+          uid: e ? e + "" : ""
+        }
+      }
+      return function () {
+        var r = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
+          e = r.bizSide,
+          n = r.appId,
+          t = r.testAppId;
+        e && n && t || console.error("initInlineLogger 缺少必传项 bizSize, appId, testAppId");
+        var i = function (r) {
+            var e = r || {},
+              n = e.message,
+              t = void 0 === n ? "" : n,
+              i = e.filename,
+              a = e.lineno,
+              d = e.colno,
+              u = e.error,
+              c = function (r) {
+                var e = {};
+                if (r && r.extraInfo) {
+                  var n = r.extraInfo,
+                    t = n.errorMsg,
+                    o = n.error_msg,
+                    i = n.errorMessage,
+                    a = n.error_message,
+                    d = n.errorCode,
+                    u = n.error_code,
+                    s = n.page,
+                    c = n.type,
+                    f = n.url,
+                    l = n.payload;
+                  e.errorMsg = t || o || i || a, e.errorCode = d || u, e.page = s, e.type = c, e.url = f, e
+                    .payload = l, Object.keys(e).forEach((function (r) {
+                      return void 0 === e[r] && delete e[r]
+                    }))
+                }
+                return e
+              }(u);
+            if (-1 !== t.toLowerCase().indexOf("syntaxerror")) {
+              f(t + ", " + i + ", " + a + ", " + d + ", " + u, !1, c, B(u))
+            } else {
+              var l = (u || {}).message;
+              s(o({
+                errorMsg: "html_error_js: " + (t || l || "unknown"),
+                page: "errMsg: " + l + ", stack: " + B(u),
+                errorCode: 555558
+              }, c))
+            }
+          },
+          a = function (r) {
+            var e, n, t, o = {
+              error_msg: (e = r.reason) && e.message,
+              error_stack: B(e),
+              Error: e
+            };
+            s({
+              errorMsg: "html_error_unhandledrejection: " + (o && o.error_msg || "unknown"),
+              page: "unhandledrejection reason:" + ((n = JSON.stringify(o, (t = [], function (r, e) {
+                if (null !== e && "object" === d(e)) {
+                  if (t.indexOf(e) >= 0) return;
+                  t.push(e)
+                }
+                return e
+              }))) && n.replace(/(PDDAccessToken=|AccessToken=|"AccessToken":)\s*"?([^;,"]+)"?([;,]?\s*)/gi,
+                (function (r, e, n, t) {
+                  return "" + e + n.length + t
+                }))),
+              payload: o && o.extraInfo || {}
+            })
+          };
+        window.__RESET_ERROR_LISTENER__ = function () {
+            window.removeEventListener("unhandledrejection", a), window.removeEventListener("error", i)
+          }, window.addEventListener("error", i), window.addEventListener("unhandledrejection", a), window
+          .addEventListener("error", (function (r) {
+            if ("[object Event]" === Object.prototype.toString.call(r)) {
+              var e = r.target;
+              if (e) {
+                var n;
+                if (-1 !== ["preload", "prefetch"].indexOf(e.rel)) return;
+                var t = function (r) {
+                    return r && "string" == typeof r ? r : ""
+                  },
+                  o = t(e.src) || t(e.href) || t(e.getAttribute("href"));
+                if (o && o.indexOf && "function" == typeof o.indexOf && -1 !== o.indexOf("127.0.0.1")) return;
+                s({
+                  errorMsg: "html_error_" + e.nodeName.toLowerCase() + ((null === (n = e.dataset) ||
+                    void 0 === n ? void 0 : n.retryFlag) || ""),
+                  page: "Error: " + e.outerHTML,
+                  errorCode: 555556,
+                  type: rr,
+                  url: o
+                })
+              } else f(JSON.stringify(r), !0)
+            }
+          }), !0);
+        var u = {
+          wifi: 1,
+          "2g": 2,
+          "3g": 3,
+          "4g": 4
+        };
+
+        function s(i) {
+          var a = i.errorMsg,
+            d = i.errorCode,
+            s = i.page,
+            f = i.type,
+            p = void 0 === f ? er : f,
+            v = i.url,
+            m = i.payload,
+            g = void 0 === m ? {} : m,
+            h = /(\w+).html/.exec(document.referrer),
+            y = navigator.connection && (navigator.connection.effectiveType || navigator.connection.type),
+            _ = j(),
+            w = _.platform,
+            b = _.version,
+            S = _.isHarmonyNativePlatform ? "harmony" : w;
+          ! function (r) {
+            if (l) return r(l);
+            var e = "pdd_user_id";
+            if (j().isNativePlatform && window.pinbridge) {
+              var n = function (e) {
+                  l = e.user_id || 0, r(l)
+                },
+                t = function () {
+                  l = c(e), r(l)
+                };
+              return window.pinbridge.callNative("AMUser", "info", {
+                need_token: !1
+              }, n, t)
+            }
+            l = c(e), r(l)
+          }((function (i) {
+            var c = Date.now() + "_" + i,
+              f = mr({
+                bizSide: e,
+                appId: n,
+                testAppId: t,
+                app_version: b || ar()
+              }),
+              l = gr(S, i),
+              m = function () {
+                var r = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
+                  e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
+                  n = arguments.length > 2 && void 0 !== arguments[2] && arguments[2],
+                  t = e.universalPaths,
+                  i = e.universalQueryKeys,
+                  a = e.reportPath,
+                  d = r.app_version,
+                  u = r.log_version,
+                  s = void 0 === u ? "0.0.1" : u,
+                  c = r.network,
+                  f = r.page,
+                  l = void 0 === f ? "" : f,
+                  p = r.page_id,
+                  v = r.page_name,
+                  m = r.page_sn,
+                  g = r.page_url,
+                  h = r.refer_page_id,
+                  y = r.refer_page_name,
+                  _ = r.refer_page_sn,
+                  w = r.user_agent,
+                  b = r.error_msg,
+                  S = r.error_message,
+                  A = r.serverIp,
+                  O = void 0 === A ? "" : A,
+                  I = r.httpCode,
+                  C = void 0 === I ? "" : I,
+                  R = r.httpMethod,
+                  E = void 0 === R ? "" : R,
+                  M = r.errorCode,
+                  N = void 0 === M ? "555555" : M,
+                  j = r.error_code,
+                  x = r.module,
+                  T = void 0 === x ? "" : x,
+                  P = r.pageId,
+                  k = void 0 === P ? "" : P,
+                  V = r.referPageId,
+                  L = void 0 === V ? "" : V,
+                  Q = r.url,
+                  q = cr(t, i, a);
+                return o({
+                  network: (c || "0") + "",
+                  serverIp: O,
+                  url: Q,
+                  errorCode: String(j || N),
+                  errorMsg: (b || S || "").substr(0, 150),
+                  module: T,
+                  pageId: k,
+                  pagePath: q,
+                  pageSn: m ? m + "" : "",
+                  pageDomain: window.location.hostname,
+                  pageUrl: g || window.location.href,
+                  referPageId: L,
+                  page_id: p ? p + "" : "",
+                  refer_page_id: h ? h + "" : "",
+                  referPageName: y || "",
+                  referPageSn: _ ? _ + "" : "",
+                  pageName: v || "",
+                  page: l,
+                  log_version: s,
+                  user_agent: w || window.navigator.userAgent,
+                  app_version: d || ""
+                }, n ? {
+                  httpCode: String(C),
+                  httpMethod: E
+                } : {})
+              }({
+                app_version: b,
+                log_version: "1.0.0",
+                network: u[y] || 0,
+                page: s,
+                page_url: location.href,
+                refer_page_name: h && h[1],
+                error_msg: a,
+                url: v,
+                errorCode: d
+              }, r);
+            f.common_tags = l, f.datas = [{
+              category: Y,
+              type: p,
+              timestamp: Date.now(),
+              tags: m,
+              extras: o({
+                error_logger: "1",
+                unique_tag: c
+              }, g)
+            }], vr(f)
+          }))
+        }
+
+        function f(r, e) {
+          var n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {},
+            t = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : "";
+          ! function (r, e) {
+            var n, t = j(),
+              o = t.isNativePlatform,
+              i = t.isAndroid,
+              a = t.isIos,
+              d = t.version;
+            o && (i && E(d, "6.70.0") >= 0 || a && E(d, "5.8.0") >= 0) ? null === (n = window.pinbridge) ||
+              void 0 === n || n.callNative("JSRecovery", "tryReload", {
+                error_info: [r]
+              }, (function () {
+                e("JSRecovery success")
+              }), (function (r, n) {
+                e("JSRecovery fail: " + n)
+              })) : e("notNativeORLowVersion")
+          }({
+            type: "html_error",
+            message: r
+          }, (function (i) {
+            s(o({
+              errorMsg: "html_error: " + r,
+              errorCode: 555557,
+              page: "capture: " + e + ", result: " + i + ", message: " + r + ", extraMsg: " + t
+            }, n))
+          }))
+        }
+        window.$inlineSendNormalLog = function (r) {
+          var e = r.errorMsg,
+            n = r.errorCode,
+            t = r.page,
+            o = r.payload;
+          s({
+            errorMsg: e,
+            errorCode: n,
+            page: t,
+            type: nr,
+            payload: void 0 === o ? {} : o
+          })
+        };
+        var l = 0
+      }
+    }();
+  </script>
+  <script>
+    ! function () {
+      var e = 0,
+        t = !1,
+        r = !1,
+        n = window.__EXT_AUTOREPAIR_HOST_MAP__ || {
+          "static.pddpic.com": ["static-1.pddpic.com", "static-2.pddpic.com"]
+        };
+
+      function o(e, t) {
+        setTimeout((function () {
+          var r = new Error;
+          throw r.extraInfo = {
+            error_message: e,
+            errorCode: 527,
+            type: 501,
+            url: t
+          }, r
+        }))
+      }
+      window.addEventListener("error", (function (a) {
+        var i = a.target || {},
+          c = i.src || i.href,
+          d = (i.nodeName || "").toLowerCase(),
+          s = document.createElement("a");
+        s.href = c;
+        var l = s.host,
+          f = String(i.onerror),
+          p = f.indexOf("Loading chunk") > 0 && f.indexOf("failed") > 0 || !(!i.dataset || !i.dataset.webpack),
+          u = f.indexOf("CSS_CHUNK_LOAD_FAILED") > 0;
+        if (["link", "script"].indexOf(d) >= 0 && ["preload", "prefetch"].indexOf(i.rel) < 0 && !p && !u && n[
+          l]) {
+          var y = "script" === d,
+            m = Date.now() % 2,
+            _ = 0 === m ? 1 : 0;
+          ! function t(a) {
+            var i = document.createElement(d);
+            i.dataset.retryFlag = "_retry_".concat(a ? 1 : 2);
+            var s = c.replace(l, n[l][a ? m : _]);
+            y ? (i.src = s, i.crossOrigin = "anonymous") : (i.href = s, i.rel = "stylesheet"), i.onerror =
+              function () {
+                a ? t(!1) : y && (! function () {
+                  if (3 === (e += 1)) {
+                    var t = document.createElement("div"),
+                      r = window.screen.width / 375;
+                    document.body.appendChild(t), t.style.position = "fixed", t.style.top = "45%", t.style
+                      .left = "50%", t.style.webkitTransform = "translateX(-50%)", t.style.transform =
+                      "translateX(-50%)", t.style.padding = "".concat(14 * r, "px ").concat(16 * r, "px"), t
+                      .style.fontSize = "".concat(15 * r, "px"), t.style.background = "rgba(0, 0, 0, .8)", t
+                      .style.borderRadius = "".concat(8 * r, "px"), t.style.color = "#fff", t.style
+                      .textAlign = "center", t.style.whiteSpace = "nowrap", t.style.zIndex = "9999", t
+                      .innerText = "资源加载异常, 请切换网络重试", setTimeout((function () {
+                        t.remove()
+                      }), 4e3)
+                  }
+                }(), r || (r = !0, o("some_retry_fail", s)))
+              }, (y ? document.body : document.head).appendChild(i)
+          }(!0), y && !t && (t = !0, o("trigger_retry", c))
+        }
+        return null
+      }), !0)
+    }();
+  </script>
+  <script>
+    initInlineLogger({
+      "universalPaths": ["/likes.html", "/mall_subject.html", "/transac_batch_list.html",
+        "/transac_ddgj_agreement.html"
+      ],
+      "universalQueryKeys": ["_t_rpn", "_t_timestamp"],
+      "appId": "100578",
+      "testAppId": "100219",
+      "bizSide": "consumer-platform-fe"
+    })
+  </script>
+
+  <link rel="preload" href="https://static.pddpic.com/assets/css/react_transac_batch_list_5cc78e9ce36a610fca36.css"
+    as="style">
+
+
+  <link rel="preload" href="https://static.pddpic.com/assets/js/vendor_7aa705736cdd3dbf5e03.js" as="script"
+    crossorigin="anonymous">
+  <link rel="preload" href="https://static.pddpic.com/assets/js/react_pdd_0c6c6954fa8d0d844e99.js" as="script"
+    crossorigin="anonymous">
+  <link rel="preload" href="https://static.pddpic.com/assets/js/react_transac_batch_list_5cc78e9ce36a610fca36.js"
+    as="script" crossorigin="anonymous">
+
+
+
+
+</head>
+
+<body>
+
+
+  <script>
+    var pinbridge = function (e) {
+      var n, t = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (e) {
+        return typeof e
+      } : function (e) {
+        return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" :
+          typeof e
+      };
+      n = function () {
+        try {
+          if (top.pinbridge) return top.pinbridge
+        } catch (e) {}
+        var e = 0,
+          n = {},
+          r = {},
+          i = window._fastJsN ? function (e, n, t, i) {
+            var o = "function" == typeof window._fastJsN.callNative && window._fastJsN.callNative(e, n, t ? JSON
+              .stringify(t) : null, i);
+            return (o = o ? JSON.parse(o) : null) && o.hasOwnProperty("errorCode") && (r.callback(o.callID, o
+              .errorCode, o.data), r.removeCallback(o.callID)), o
+          } : function (e, n, t, r) {
+            ! function (e, n) {
+              if (window && window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers
+                .hybridAPIMessageHandler) window.webkit.messageHandlers.hybridAPIMessageHandler.postMessage({
+                url: e
+              });
+              else {
+                if (null != (navigator.userAgent || navigator.vendor || window.opera).match(/phh_android_version/i))
+                  return alert(e);
+                var t = document.createElement("iframe");
+                t.setAttribute("src", e), t.setAttribute("style", "display:none;"), t.setAttribute("height", "0px"),
+                  t.setAttribute("width", "0px"), t.setAttribute("frameborder", "0"), document.body.appendChild(t),
+                  t.parentNode.removeChild(t), t = null
+              }
+            }("pinbridge:///request?t=" + e + "&m=" + n + "&p=" + encodeURIComponent(JSON.stringify(t)) + "&c=" + r)
+          };
+        return r = {
+          check: function (e, n, t, i) {
+            e && n || t && t(!1), r.callNative("AMBridgeAPI", "check", {
+              module_name: e,
+              method_name: n
+            }, function (e) {
+              t && t(e && e.exist)
+            }, function () {
+              i ? i() : t && t(!1)
+            })
+          },
+          callback: function (e, t, r) {
+            r = r || {};
+            var i = n[e];
+            i && (i.func ? i.func(t, r) : 0 === t && i.onSuccess ? i.onSuccess(r) : 0 !== t && i.onError && i
+              .onError(r, t))
+          },
+          callNative: function (r, o, a, c, l) {
+            a = a || {};
+            var d = ++e;
+            return n[d] = {
+              onSuccess: c,
+              onError: l
+            }, a = function r(i) {
+              if ("object" !== (void 0 === i ? "undefined" : t(i))) return i;
+              var o = {};
+              for (var a in "[object Array]" === Object.prototype.toString.call(i) && (o = []), i)
+                if (i.hasOwnProperty(a)) {
+                  var c = i[a];
+                  if ("function" == typeof c) {
+                    var l = ++e;
+                    n[l] = {
+                      func: c
+                    }, o[a] = "__aimi_function_" + l
+                  } else "object" === (void 0 === c ? "undefined" : t(c)) && null !== c ? o[a] = r(c) : o[a] =
+                    c
+                } return o
+            }(a), i(r, o, a, d)
+          },
+          callbackFromNative: function (e, n, t) {
+            r.callback(e, n, t)
+          },
+          removeCallback: function (e) {
+            delete n[e]
+          },
+          decodeFunctions: function (e) {
+            if ("object" === (void 0 === e ? "undefined" : t(e))) {
+              var n = function (n) {
+                if (!e.hasOwnProperty(n)) return "continue";
+                var i, o, a, c = e[n];
+                if ("string" == typeof c && 0 === c.indexOf("__aimi_function_")) {
+                  var l = c.substring("__aimi_function_".length).split("_");
+                  3 === l.length && (i = parseInt(l[0]), o = parseInt(l[1]), a = parseInt(l[2]), isNaN(i) ||
+                    isNaN(o) || isNaN(a) || (e[n] = function (e, n) {
+                      r.callNative("AMBridgeAPI", "callback", {
+                        bridge_id: o,
+                        context_id: a,
+                        call_id: i,
+                        error_code: e,
+                        response: n
+                      })
+                    }))
+                } else "object" === (void 0 === c ? "undefined" : t(c)) && r.decodeFunctions(c)
+              };
+              for (var i in e) n(i)
+            }
+          }
+        }
+      }(), window.pinbridge = n;
+      var r = n,
+        i = r.callbackFromNative,
+        o = r.callNative,
+        a = r.check,
+        c = r.callback,
+        l = r.decodeFunctions,
+        d = r.removeCallback,
+        u = n;
+      return e.callNative = o, e.callback = c, e.callbackFromNative = i, e.check = a, e.decodeFunctions = l, e
+        .default = u, e.removeCallback = d, e
+    }({});
+  </script>
+
+  <style>
+    #main {
+      font-family: PingFang SC, STHeiti STXihei, Microsoft YaHei, Microsoft JhengHei, miui;
+    }
+
+    .yKBWKhUH {
+      margin-bottom: .92rem;
+      padding-bottom: .87rem;
+    }
+
+    .like-goods-recommend-head {
+      width: 100%;
+      height: .44rem;
+      line-height: .44rem;
+      color: #e02e24;
+      background-color: #fff;
+      font-size: .16rem;
+      text-align: center;
+      position: relative;
+      margin-top: .06rem;
+      border-bottom: 1px solid #f2f2f2;
+    }
+
+    .like-goods-recommend-head:before {
+      content: "";
+      font-size: 0.18rem;
+      color: #e02e24;
+      font-family: "icomoon";
+      line-height: 1;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .like-goods-recommend-head:before {
+      margin-right: .08rem;
+    }
+
+    .like-goods-no-more {
+      position: relative;
+      padding-top: .1rem;
+      height: .69rem;
+      text-align: center;
+      color: #9c9c9c;
+      font-size: .12rem;
+    }
+
+      {
+      /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+    }
+
+    @media only screen and (max-width: 480px) {
+      html {
+        font-size: 128px;
+      }
+    }
+
+    @media only screen and (max-width: 414px) {
+      html {
+        font-size: 110.4px;
+      }
+    }
+
+    @media only screen and (max-width: 412px) {
+      html {
+        font-size: 109.8666666667px;
+      }
+    }
+
+    @media only screen and (max-width: 400px) {
+      html {
+        font-size: 106.6666666667px;
+      }
+    }
+
+    @media only screen and (max-width: 393px) {
+      html {
+        font-size: 104.8px;
+      }
+    }
+
+    @media only screen and (max-width: 375px) {
+      html {
+        font-size: 100px;
+      }
+    }
+
+    @media only screen and (max-width: 360px) {
+      html {
+        font-size: 96px;
+      }
+    }
+
+    @media only screen and (max-width: 345px) {
+      html {
+        font-size: 92px;
+      }
+    }
+
+    @media only screen and (max-width: 320px) {
+      html {
+        font-size: 85.3333333333px;
+      }
+    }
+
+    html {
+      -webkit-text-size-adjust: none;
+      font-size: 26.6666666667vw;
+    }
+
+    @media only screen and (min-width: 640px) {
+      html {
+        font-size: 170.6666666667px;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      border: 0;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      outline: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      margin: auto;
+      width: 100%;
+      height: 100%;
+      font-family: PingFang SC, Helvetica, STHeiti STXihei, Microsoft YaHei, Microsoft JhengHei, Arial;
+    }
+
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    hr,
+    p,
+    blockquote,
+    dl,
+    dt,
+    dd,
+    ul,
+    ol,
+    li,
+    pre,
+    form,
+    fieldset,
+    legend,
+    button,
+    input,
+    textarea,
+    th,
+    td {
+      vertical-align: baseline;
+      border: 0 none;
+      list-style: outside none none;
+    }
+
+    i,
+    em {
+      font-style: normal;
+    }
+
+    ol,
+    ul {
+      list-style: none;
+    }
+
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    main,
+    menu,
+    nav,
+    section,
+    summary {
+      display: block;
+    }
+
+    audio,
+    canvas,
+    progress,
+    video {
+      display: inline-block;
+      vertical-align: baseline;
+    }
+
+    audio:not([controls]) {
+      display: none;
+      height: 0;
+    }
+
+    [hidden],
+    template {
+      display: none;
+    }
+
+    a {
+      color: #333;
+      background-color: rgba(0, 0, 0, 0);
+      text-decoration: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+
+    a:visited,
+    a:active,
+    a:hover {
+      text-decoration: none;
+      outline: 0;
+    }
+
+    abbr[title] {
+      border-bottom: 1px dotted;
+    }
+
+    b,
+    strong {
+      font-weight: bold;
+    }
+
+    dfn {
+      font-style: italic;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin: .67em 0;
+    }
+
+    mark {
+      background: #ff0;
+      color: #000;
+    }
+
+    small {
+      font-size: 80%;
+    }
+
+    sub {
+      font-size: 75%;
+      line-height: 0;
+      position: relative;
+      vertical-align: baseline;
+    }
+
+    sup {
+      font-size: 75%;
+      line-height: 0;
+      position: relative;
+      vertical-align: baseline;
+      top: -0.5em;
+    }
+
+    sub {
+      bottom: -0.25em;
+    }
+
+    img {
+      border: 0;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      vertical-align: top;
+    }
+
+    svg:not(:root) {
+      overflow: hidden;
+    }
+
+    figure {
+      margin: 1em 40px;
+    }
+
+    hr {
+      box-sizing: content-box;
+      height: 0;
+    }
+
+    pre {
+      overflow: auto;
+    }
+
+    code,
+    kbd,
+    pre,
+    samp {
+      font-family: monospace, monospace;
+      font-size: 1em;
+    }
+
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+      color: inherit;
+      font: inherit;
+      margin: 0;
+      resize: none;
+    }
+
+    button {
+      overflow: visible;
+      text-transform: none;
+    }
+
+    select {
+      text-transform: none;
+    }
+
+    button,
+    html input[type=button] {
+      -webkit-appearance: button;
+      cursor: pointer;
+    }
+
+    input[type=reset],
+    input[type=submit] {
+      -webkit-appearance: button;
+      cursor: pointer;
+    }
+
+    button[disabled],
+    html input[disabled] {
+      cursor: default;
+    }
+
+    button::-moz-focus-inner {
+      border: 0;
+      padding: 0;
+    }
+
+    input {
+      line-height: normal;
+    }
+
+    input::-moz-focus-inner {
+      border: 0;
+      padding: 0;
+    }
+
+    input[type=checkbox],
+    input[type=radio] {
+      box-sizing: border-box;
+      padding: 0;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      height: auto;
+    }
+
+    input[type=search] {
+      -webkit-appearance: textfield;
+      box-sizing: content-box;
+    }
+
+    input[type=search]::-webkit-search-cancel-button,
+    input[type=search]::-webkit-search-decoration {
+      -webkit-appearance: none;
+    }
+
+    fieldset {
+      border: 1px solid silver;
+      margin: 0 2px;
+      padding: .35em .625em .75em;
+    }
+
+    legend {
+      border: 0;
+      padding: 0;
+    }
+
+    textarea {
+      overflow: auto;
+    }
+
+    optgroup {
+      font-weight: bold;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    td,
+    th {
+      padding: 0;
+    }
+
+    @-webkit-keyframes C75vfHOP {
+      0% {
+        -webkit-transform: rotateZ(0deg);
+        transform: rotateZ(0deg);
+      }
+
+      50% {
+        -webkit-transform: rotateZ(180deg);
+        transform: rotateZ(180deg);
+      }
+
+      100% {
+        -webkit-transform: rotateZ(360deg);
+        transform: rotateZ(360deg);
+      }
+    }
+
+    @keyframes C75vfHOP {
+      0% {
+        -webkit-transform: rotateZ(0deg);
+        transform: rotateZ(0deg);
+      }
+
+      50% {
+        -webkit-transform: rotateZ(180deg);
+        transform: rotateZ(180deg);
+      }
+
+      100% {
+        -webkit-transform: rotateZ(360deg);
+        transform: rotateZ(360deg);
+      }
+    }
+
+    body {
+      -webkit-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+    }
+
+    input,
+    textarea,
+    div[contentEditable=true],
+    p[contentEditable=true],
+    .enable-select {
+      -webkit-user-select: text;
+      -o-user-select: text;
+      user-select: text;
+    }
+
+    body {
+      background: #f4f4f4;
+      color: #666;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    body,
+    header {
+      margin: auto;
+      max-width: 640px;
+    }
+
+    .app-mask {
+      background-color: rgba(223, 25, 25, 0);
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+
+    @supports (padding: env(safe-area-inset-top)) or (padding: constant(safe-area-inset-top)) {
+      .iphonex-extra-height {
+        height: constant(safe-area-inset-bottom);
+        height: env(safe-area-inset-bottom);
+      }
+    }
+
+    .icon {
+      font-family: "icomoon";
+      font-style: normal;
+      font-smoothing: antialiased;
+    }
+
+    @font-face {
+      font-family: "icomoon";
+      src: url("https://funimg.pddpic.com/fonts/iconfont_20180706.ttf");
+      font-weight: normal;
+      font-style: normal;
+      line-height: 1;
+    }
+
+    @font-face {
+      font-family: "icomoon-likes";
+      src: url("https://funimg.pddpic.com/fonts/likes_iconfont_20211207.ttf");
+      font-weight: normal;
+      font-style: normal;
+      line-height: 1;
+    }
+
+    .sox3TP3f {
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      z-index: 2000;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: #fff;
+    }
+
+    .KiBJo4kO {
+      position: absolute;
+      bottom: .13rem;
+      left: 50%;
+      height: .17rem;
+      line-height: .17rem;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      color: #151516;
+    }
+
+    .Zd9ZyjzL {
+      position: relative;
+      width: 100%;
+      height: .44rem;
+    }
+
+    .SD81YIc6 {
+      position: fixed;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      top: 0;
+      left: 0;
+      padding: 0 .14rem;
+      width: 100%;
+      height: .44rem;
+      z-index: 10;
+      text-align: center;
+      background-color: #fff;
+      overflow: hidden;
+    }
+
+    .c2d2NNh5 {
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      width: 100%;
+      height: .36rem;
+      background-color: #ededed;
+      border-radius: .08rem;
+    }
+
+    .RYNG5rqg {
+      font-size: .16rem;
+      color: #9c9c9c;
+    }
+
+    .RYNG5rqg:before {
+      content: "";
+      font-size: 0.14rem;
+      color: #9c9c9c;
+      font-family: "icomoon";
+      line-height: 1;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .RYNG5rqg::before {
+      position: relative;
+      margin-right: .08rem;
+    }
+
+    .sdWGSvs9 {
+      position: relative;
+      width: 3.75rem;
+      height: .48rem;
+      margin-bottom: .08rem;
+      padding: 0 .12rem;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      -webkit-justify-content: space-between;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      background: #fff;
+      position: relative;
+      border: none !important;
+    }
+
+    .sdWGSvs9::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      right: -100%;
+      bottom: -100%;
+      left: 0;
+      -webkit-transform-origin: 0 0;
+      transform-origin: 0 0;
+      pointer-events: none;
+      -webkit-transform: scale(0.5);
+      transform: scale(0.5);
+      box-sizing: border-box;
+      border-top: 1px solid #d2d2d2;
+    }
+
+    .WHqMSHEG {
+      font-size: .15rem;
+      color: #58595b;
+    }
+
+    .Q2CqAgLM {
+      position: relative;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      -webkit-justify-content: flex-start;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      padding-right: .1rem;
+    }
+
+    .Q2CqAgLM:after {
+      content: "";
+      font-size: 0.11rem;
+      color: rgba(0, 0, 0, .15);
+      font-family: "icomoon";
+      line-height: 1;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .Q2CqAgLM::after {
+      position: absolute;
+      top: 52%;
+      right: -0.03rem;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+
+    .Q2CqAgLM:active::after {
+      color: #58595b;
+    }
+
+    .ZRLMiW9r {
+      width: .3rem;
+      height: .3rem;
+      background: rgba(0, 0, 0, .02);
+      position: relative;
+      margin-right: .05rem;
+    }
+
+    .ZRLMiW9r::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: rgba(0, 0, 0, .03);
+      border-radius: .02rem;
+      z-index: 1;
+    }
+
+    .zKPc60di {
+      width: 100%;
+      height: 100%;
+      border-radius: .02rem;
+    }
+
+    .ctFBi5sh {
+      display: inline-block;
+      width: .09rem;
+      height: .09rem;
+      background: #e02e24;
+      border-radius: 50%;
+      margin: 0 .03rem;
+    }
+
+    .LLPw6CTW.sdWGSvs9 {
+      height: auto;
+      padding: .16rem .12rem;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      -webkit-justify-content: flex-start;
+      -webkit-box-align: start;
+      align-items: flex-start;
+      -webkit-align-items: flex-start;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+      -webkit-flex-direction: column;
+    }
+
+    .LLPw6CTW.sdWGSvs9 .o5IZquOK {
+      width: 100%;
+      margin-bottom: .12rem;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      -webkit-justify-content: space-between;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+    }
+
+    .LLPw6CTW.sdWGSvs9 .o5IZquOK .ucMzdLFF {
+      font-size: .15rem;
+      color: #151516;
+    }
+
+    .LLPw6CTW.sdWGSvs9 .o5IZquOK .m1oPwwjm {
+      font-size: .13rem;
+      color: #9c9c9c;
+    }
+
+    .LLPw6CTW.sdWGSvs9 .o5IZquOK .m1oPwwjm:after {
+      content: "";
+      font-size: 0.11rem;
+      color: rgba(0, 0, 0, .15);
+      font-family: "icomoon";
+      line-height: 1;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .LLPw6CTW.sdWGSvs9.PUb1KDBe {
+      padding-right: 0;
+    }
+
+    .gYBzfVXH {
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      -webkit-justify-content: flex-start;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      line-height: 1;
+      width: 100%;
+    }
+
+    .gYBzfVXH .dw4SwRgm {
+      white-space: nowrap;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      width: 100%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+    }
+
+    .gYBzfVXH .dw4SwRgm::-webkit-scrollbar {
+      display: none;
+    }
+
+    .gYBzfVXH .dw4SwRgm .DYnOCr2S {
+      position: relative;
+      display: inline-block;
+      width: .8rem;
+      border-radius: .02rem;
+      overflow: hidden;
+      -webkit-flex-shrink: 0;
+      flex-shrink: 0;
+    }
+
+    .gYBzfVXH .dw4SwRgm .DYnOCr2S:not(:last-child) {
+      margin-right: .06rem;
+    }
+
+    .gYBzfVXH .dw4SwRgm .DYnOCr2S .Tggs5Mon {
+      position: relative;
+      width: .8rem;
+      height: .8rem;
+    }
+
+    .gYBzfVXH .dw4SwRgm .DYnOCr2S .Tggs5Mon::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, .04);
+    }
+
+    .gYBzfVXH .dw4SwRgm .DYnOCr2S .Tggs5Mon .BsliLVj6 {
+      width: 100%;
+      height: 100%;
+    }
+
+    .gYBzfVXH .dw4SwRgm .DYnOCr2S .Tggs5Mon .akDgEAnH {
+      position: absolute;
+      width: .8rem;
+      text-align: center;
+      bottom: .03rem;
+    }
+
+    .gYBzfVXH .dw4SwRgm .DYnOCr2S .Tggs5Mon .akDgEAnH ._cKNbAk2 {
+      display: -webkit-inline-box;
+      display: -webkit-inline-flex;
+      display: inline-flex;
+      border-radius: .1rem;
+      line-height: 1;
+      background: rgba(0, 0, 0, .7);
+      color: #fff;
+      font-size: .12rem;
+      padding: .04rem .06rem;
+      max-width: .76rem;
+    }
+
+    .gYBzfVXH .dw4SwRgm .DYnOCr2S .Tggs5Mon .akDgEAnH ._cKNbAk2>i {
+      margin-right: .02rem;
+    }
+
+    .gYBzfVXH .dw4SwRgm .DYnOCr2S .Tggs5Mon .akDgEAnH .n1hk7qLy {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .gYBzfVXH .dw4SwRgm .DYnOCr2S .raftTPho {
+      width: 100%;
+      max-width: .8rem;
+      margin-top: .08rem;
+      font-size: .13rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: center;
+      line-height: 1;
+    }
+
+    .gYBzfVXH .dw4SwRgm .DYnOCr2S .raftTPho>span {
+      color: #e02e24;
+    }
+
+    .gYBzfVXH .dw4SwRgm .QegB5Y88 {
+      display: inline-block;
+      width: .34rem;
+      height: .8rem;
+      padding: .12rem .11rem;
+      font-size: .12rem;
+      color: #58595b;
+      background: #f4f4f4;
+      white-space: normal;
+      line-height: .14rem;
+    }
+
+    .sh2M6fCp {
+      width: 100%;
+      height: 3.69rem;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+    }
+
+    .Ec8kjrqG {
+      color: #58595b;
+      text-align: center;
+      width: 100%;
+      font-size: .16rem;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+      -webkit-flex-direction: column;
+    }
+
+    .Ec8kjrqG:before {
+      content: "";
+      font-size: 0.7rem;
+      color: #ccc;
+      font-family: "icomoon-likes";
+      line-height: 1;
+      font-weight: normal;
+    }
+
+    .Ec8kjrqG::before {
+      margin-bottom: .28rem;
+    }
+
+    .PP5P7ZJi {
+      position: relative;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      padding: .125rem 0 .045rem;
+      width: 100%;
+      font-size: .13rem;
+      line-height: 1;
+      color: #9c9c9c;
+    }
+
+    .PP5P7ZJi::before,
+    .PP5P7ZJi::after {
+      content: "";
+      width: .22rem;
+      height: 1px;
+      background-color: rgba(0, 0, 0, .15);
+    }
+
+    .ljVsVNTs {
+      margin: 0 .08rem;
+    }
+
+    .BCZK0oIT {
+      position: relative;
+      padding-top: .1rem;
+      height: .69rem;
+      text-align: center;
+      color: #9c9c9c;
+      font-size: .12rem;
+      line-height: normal;
+    }
+
+    .nbYqTNZ_ {
+      position: relative;
+      width: 100%;
+      background-color: #fff;
+      margin-top: .08rem;
+    }
+
+    .DWIRbcIw {
+      position: relative;
+      width: 100%;
+      margin-top: .08rem;
+      background-color: #fff;
+    }
+
+    .MmNgMUQY {
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      -webkit-justify-content: flex-start;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      height: .4rem;
+    }
+
+    .MmNgMUQY::after {
+      width: calc(100% - .4rem);
+      height: 1px;
+      position: absolute;
+      bottom: 0;
+      margin-left: .4rem;
+      content: "";
+      background-color: rgba(0, 0, 0, .05);
+    }
+
+    .tMUkE0Nb {
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      -webkit-justify-content: flex-start;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      padding: .1rem .12rem .02rem;
+    }
+
+    .dXGqbnD7 {
+      position: relative;
+      -webkit-flex-shrink: 0;
+      flex-shrink: 0;
+      width: .2rem;
+      height: .2rem;
+      margin: 0 .08rem 0 0;
+      border: 1px solid #ededed;
+      border-radius: .02rem;
+    }
+
+    .dXGqbnD7 img {
+      width: 100%;
+      height: 100%;
+      border-radius: .02rem;
+    }
+
+    .tp4dH7ng {
+      position: relative;
+      -webkit-flex-shrink: 0;
+      flex-shrink: 0;
+      max-width: 2.45rem;
+      font-size: .13rem;
+      color: #151516;
+      word-break: break-all;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+
+    .zWiKT2hK {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+
+    .zWiKT2hK:active .tp4dH7ng {
+      color: #58595b;
+    }
+
+    .zWiKT2hK:active .ubgXufvC::before {
+      color: rgba(0, 0, 0, .35);
+    }
+
+    .wEKH2Hvs {
+      height: .16rem;
+      margin-left: .04rem;
+    }
+
+    .ubgXufvC:before {
+      content: "";
+      font-size: 0.11rem;
+      color: rgba(0, 0, 0, .15);
+      font-family: "icomoon";
+      line-height: 1;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .ubgXufvC::before {
+      margin-left: .04rem;
+    }
+
+    .tG4avwFZ {
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      -webkit-justify-content: space-between;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      width: 100%;
+      padding: 0 .12rem;
+    }
+
+    .tG4avwFZ .GC4LeUcc {
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      -webkit-justify-content: flex-start;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      -webkit-box-flex: 0;
+      -webkit-flex-grow: 0;
+      flex-grow: 0;
+      -webkit-flex-shrink: 0;
+      flex-shrink: 0;
+    }
+
+    .PbJdgyOq {
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      -webkit-justify-content: flex-start;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      position: relative;
+      padding-right: .11rem;
+      margin-left: .12rem;
+    }
+
+    .PbJdgyOq:after {
+      content: "";
+      font-size: 0.11rem;
+      color: rgba(0, 0, 0, .15);
+      font-family: "icomoon";
+      line-height: 1;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .PbJdgyOq::after {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      line-height: normal;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+
+    .PbJdgyOq .XwUImP0X {
+      -webkit-box-pack: end;
+      -webkit-justify-content: flex-end;
+      justify-content: flex-end;
+    }
+
+    .lsV8hrhO {
+      position: relative;
+      width: 100%;
+      background-color: #fff;
+    }
+
+    .lsV8hrhO:first-child .EAf1pxgL {
+      display: none;
+    }
+
+    .lsV8hrhO:first-child .ImRc8op6 {
+      margin-top: 0;
+    }
+
+    .lsV8hrhO .ZRWw9SoQ {
+      bottom: .04rem;
+      -webkit-transform: translateY(100%);
+      transform: translateY(100%);
+    }
+
+    .lsV8hrhO .ZRWw9SoQ::before {
+      right: .02rem;
+      top: -0.04rem;
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+
+    .lsV8hrhO .lPUNbDRk::before {
+      right: .84rem;
+    }
+
+    .lsV8hrhO:not(:first-child) .MNl0XCJL {
+      border-top: 1px solid rgba(0, 0, 0, .08);
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 1.5) {
+      .lsV8hrhO:not(:first-child) .MNl0XCJL {
+        position: relative;
+        border: none !important;
+      }
+
+      .lsV8hrhO:not(:first-child) .MNl0XCJL::after {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -33.33%;
+        bottom: -33.33%;
+        left: 0;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        pointer-events: none;
+        -webkit-transform: scale(0.75);
+        transform: scale(0.75);
+        width: 133.33%;
+        box-sizing: border-box;
+        border-top: 1px solid rgba(0, 0, 0, .08);
+      }
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 2) {
+      .lsV8hrhO:not(:first-child) .MNl0XCJL {
+        position: relative;
+        border: none !important;
+      }
+
+      .lsV8hrhO:not(:first-child) .MNl0XCJL::after {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -100%;
+        bottom: -100%;
+        left: 0;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        pointer-events: none;
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+        width: 200%;
+        box-sizing: border-box;
+        border-top: 1px solid rgba(0, 0, 0, .08);
+      }
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 3) {
+      .lsV8hrhO:not(:first-child) .MNl0XCJL {
+        position: relative;
+        border: none !important;
+      }
+
+      .lsV8hrhO:not(:first-child) .MNl0XCJL::after {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -202%;
+        bottom: -202%;
+        left: 0;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        pointer-events: none;
+        -webkit-transform: scale(0.33);
+        transform: scale(0.33);
+        width: 300%;
+        box-sizing: border-box;
+        border-top: 1px solid rgba(0, 0, 0, .08);
+      }
+    }
+
+    .rDbb39Ez {
+      position: relative;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      -webkit-justify-content: flex-start;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      width: 100%;
+      height: 1.34rem;
+      overflow: visible;
+    }
+
+    .ZRWw9SoQ {
+      position: absolute;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      -webkit-justify-content: flex-start;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+      -webkit-flex-direction: column;
+      bottom: .04rem;
+      right: .1rem;
+      -webkit-transform: translateY(100%);
+      transform: translateY(100%);
+      border-radius: .04rem;
+      background-color: #fff;
+      box-shadow: 0 0 .1rem 0 rgba(0, 0, 0, .2);
+      z-index: 10001;
+    }
+
+    .ZRWw9SoQ::before {
+      content: "";
+      position: absolute;
+      width: .14rem;
+      height: .05rem;
+      background-image: url(https://funimg.pddpic.com/personal/bubble-arrow-v2.png);
+      background-size: 100% 100%;
+    }
+
+    .B4GIiLLG {
+      right: .9rem;
+    }
+
+    .EAf1pxgL {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 2.09rem;
+      height: 1px;
+      border-top: 1px solid rgba(0, 0, 0, .05);
+    }
+
+    .ImRc8op6 {
+      position: relative;
+      margin-top: .08rem;
+      width: 100%;
+      background-color: #fff;
+    }
+
+    .sku-selector-bg {
+      z-index: 10003 !important;
+    }
+
+    .WBtFrvAk {
+      position: relative;
+      background-color: #fff;
+    }
+
+    .P52XllkZ {
+      position: relative;
+      padding: .02rem 0 .06rem 0;
+      margin-left: .42rem;
+      border-bottom: 1px solid rgba(0, 0, 0, .05);
+    }
+
+    .P52XllkZ:after {
+      content: "";
+      font-size: 0.11rem;
+      color: rgba(0, 0, 0, .15);
+      font-family: "icomoon";
+      line-height: 1;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .P52XllkZ::after {
+      position: absolute;
+      top: 50%;
+      right: .09rem;
+      line-height: normal;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+
+    .wiWsZyiB {
+      position: relative;
+      height: .38rem;
+      margin-left: .42rem;
+      line-height: .38rem;
+      border-top: 1px solid rgba(0, 0, 0, .05);
+    }
+
+    .DfYP75M9,
+    .WRDVukUn {
+      font-size: .14rem;
+      color: #58595b;
+    }
+
+    .WRDVukUn {
+      position: relative;
+      left: -0.06rem;
+    }
+
+    .xohJOZKm {
+      position: relative;
+      left: -0.09rem;
+      font-size: .13rem;
+      color: #9c9c9c;
+    }
+
+    .DoA6h_4q {
+      position: absolute;
+      top: 50%;
+      right: .09rem;
+      font-size: .13rem;
+      color: #58595b;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+
+    .DoA6h_4q:after {
+      content: "";
+      font-size: 0.11rem;
+      color: rgba(0, 0, 0, .15);
+      font-family: "icomoon";
+      line-height: 1;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .DoA6h_4q::after {
+      margin-left: .02rem;
+    }
+
+    .h1Sq6Iia {
+      padding: .06rem .09rem .06rem 0;
+      margin-left: .42rem;
+      border-bottom: 1px solid rgba(0, 0, 0, .05);
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      -webkit-justify-content: space-between;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+    }
+
+    ._94hbo2Ld {
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+      flex-grow: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .h1x9QS4A {
+      -webkit-flex-shrink: 0;
+      flex-shrink: 0;
+    }
+
+    .xBaiUkgN {
+      margin-left: .04rem;
+    }
+
+    .xBaiUkgN:before {
+      content: "";
+      font-size: 0.11rem;
+      color: rgba(0, 0, 0, .15);
+      font-family: "icomoon";
+      line-height: 1;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .xr7lyY7P {
+      position: relative;
+      width: 100%;
+      background-color: #fff;
+    }
+
+    .IoSQERoG {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      background-color: #fff;
+    }
+
+    .fEpmknKW {
+      position: relative;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      -webkit-justify-content: flex-start;
+      -webkit-box-align: start;
+      align-items: flex-start;
+      -webkit-align-items: flex-start;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      width: 100%;
+    }
+
+    .tFnMP6G3 {
+      background-color: #f3aba7;
+    }
+
+    .tFnMP6G3:active {
+      background-color: #f68b85;
+    }
+
+    .SyYwI4zj {
+      background-color: #e02e24;
+    }
+
+    .SyYwI4zj:active {
+      background-color: #c51e14;
+    }
+
+    .lkV2Aady {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 2.09rem;
+      height: 1px;
+      border-top: 1px solid rgba(0, 0, 0, .05);
+    }
+
+    .Y9aRtfZx {
+      position: relative;
+      width: 100%;
+      margin-top: .08rem;
+      background-color: #fff;
+    }
+
+    .sku-selector-bg {
+      z-index: 10003 !important;
+    }
+
+    .NsVylJKY {
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 .42rem;
+      flex: 0 0 .42rem;
+      width: .42rem;
+      height: 1.34rem;
+      text-align: center;
+    }
+
+    .U_vLMvt3 {
+      background-image: url("https://funimg.pddpic.com/like/v2/goods_collection_checkbox_v5.png");
+    }
+
+    .OCSHkc1Q {
+      background-image: url("https://funimg.pddpic.com/like/v2/goods_collection_checkbox_disabled_v5.png");
+    }
+
+    .JmGMzsU2 {
+      background-image: url("https://funimg.pddpic.com/like/v2/goods_collection_checkbox_active_v3.png");
+    }
+
+    .U_vLMvt3,
+    .JmGMzsU2,
+    .OCSHkc1Q {
+      width: .18rem;
+      height: .18rem;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    ._ZRzejgu {
+      width: .28rem;
+      height: .15rem;
+      font-size: .1rem;
+      line-height: .15rem;
+      color: #fff;
+      background-color: #d2d2d2;
+      border-radius: .075rem;
+    }
+
+    .QFrWCcpi {
+      position: relative;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 1.14rem;
+      flex: 0 0 1.14rem;
+      width: 1.14rem;
+      height: 1.14rem;
+      margin: .1rem .1rem .1rem 0;
+      overflow: hidden;
+      text-align: center;
+      border-radius: .02rem;
+    }
+
+    .QFrWCcpi::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      content: "";
+      background-color: rgba(0, 0, 0, .04);
+    }
+
+    .QFrWCcpi>img[src=""],
+    .QFrWCcpi>img:not([src]) {
+      opacity: 0;
+    }
+
+    .iTkmypIr {
+      opacity: .5;
+    }
+
+    .cyzGToFK {
+      width: 100%;
+      height: 100%;
+      border-radius: .02rem .02rem .04rem .04rem;
+    }
+
+    .Mq3RS7fO {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: .28rem;
+      font-size: .13rem;
+      line-height: .28rem;
+      color: #fff;
+      background-color: rgba(0, 0, 0, .5);
+    }
+
+    .aFBkBSNl {
+      position: relative;
+      width: 2.09rem;
+      padding: .08rem .12rem .12rem 0;
+    }
+
+    .aFBkBSNl.qJbo4QgV {
+      padding-bottom: .07rem;
+    }
+
+    .VH2b5jWi {
+      position: relative;
+      min-height: .93rem;
+    }
+
+    .bJi3Qh8O {
+      width: 100%;
+      min-height: .72rem;
+      font-size: .13rem;
+      color: #58595b;
+    }
+
+    .bJi3Qh8O.HUxJGfzs {
+      min-height: .69rem;
+    }
+
+    .h7J5pYhu {
+      max-height: .44rem;
+      margin-bottom: .01rem;
+      overflow: hidden;
+      font-size: .15rem;
+      line-height: .22rem;
+      color: #151516;
+      word-break: break-all;
+    }
+
+    .x2OzWEg2 {
+      display: inline-block;
+      height: .15rem;
+      margin: .03rem .04rem 0 0;
+    }
+
+    @supports not (-webkit-overflow-scrolling: touch) {
+      .x2OzWEg2 {
+        margin: .04rem .04rem 0 0;
+      }
+    }
+
+    ._0r2HYWDo {
+      margin: .06rem 0 .02rem;
+      font-size: .12rem;
+      font-weight: 400;
+      line-height: .12rem;
+      color: #d07c18;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      -webkit-justify-content: flex-start;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+    }
+
+    .QApTTvLh {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .MQrxogdZ {
+      position: relative;
+      padding-top: .06rem;
+    }
+
+    .lXoajHYh {
+      position: relative;
+      width: 1.97rem;
+      height: .21rem;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      -webkit-justify-content: space-between;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+    }
+
+    .lXoajHYh:not(:last-child) {
+      margin-bottom: .08rem;
+    }
+
+    .Ducmpudf {
+      border: 1px solid #e0e0e0;
+      position: relative;
+      border: none !important;
+    }
+
+    .Ducmpudf::after {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      -webkit-transform-origin: 0 0;
+      transform-origin: 0 0;
+      pointer-events: none;
+      -webkit-transform: scale(0.5);
+      transform: scale(0.5);
+      width: 200%;
+      box-sizing: border-box;
+      border: 1px solid #e0e0e0;
+      border-radius: calc(0.02rem*2);
+      height: calc(0.21rem*2);
+    }
+
+    .PTuCEsiF {
+      position: relative;
+      min-width: .46rem;
+      max-width: 1.65rem;
+      height: .21rem;
+      padding: 0 .14rem 0 .04rem;
+      font-size: .13rem;
+      color: #58595b;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      -webkit-justify-content: space-between;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+    }
+
+    .PTuCEsiF:after {
+      content: "";
+      font-size: 0.11rem;
+      color: rgba(0, 0, 0, .15);
+      font-family: "icomoon";
+      line-height: 1;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .PTuCEsiF::after {
+      position: absolute;
+      top: 52%;
+      right: .02rem;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+
+    .PTuCEsiF:active {
+      color: #151516;
+      background-color: #ebebeb;
+    }
+
+    .PTuCEsiF:active::after {
+      color: #58595b;
+    }
+
+    .FavSmBd0 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      word-break: break-all;
+    }
+
+    .vN8SLsyj {
+      position: relative;
+      width: .77rem;
+      height: .21rem;
+      padding-left: .04rem;
+      line-height: .21rem;
+      background-color: #f4f4f4;
+      border-radius: .02rem;
+    }
+
+    .vN8SLsyj:after {
+      content: "";
+      font-size: 0.11rem;
+      color: #9c9c9c;
+      font-family: "icomoon-likes";
+      line-height: 1;
+      font-weight: normal;
+    }
+
+    .vN8SLsyj::after {
+      position: absolute;
+      top: 50%;
+      right: .06rem;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+
+    :not(.C6ttxuWU).vN8SLsyj:active {
+      color: #151516;
+      background-color: #ededed;
+    }
+
+    :not(.C6ttxuWU).vN8SLsyj:active::after {
+      color: #58595b;
+    }
+
+    .C6ttxuWU {
+      color: #d2d2d2;
+      background-color: #f8f8f8;
+    }
+
+    .C6ttxuWU::after {
+      color: #d2d2d2;
+    }
+
+    .oKB6RysZ {
+      max-width: 1.97rem;
+      height: .21rem;
+      overflow: hidden;
+      font-size: .13rem;
+      line-height: .21rem;
+      color: #58595b;
+      word-break: break-all;
+    }
+
+    .j7XGqOki {
+      width: 100%;
+      height: .16rem;
+      margin-top: .09rem;
+      overflow: hidden;
+    }
+
+    .o3ue2bYQ {
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      -webkit-justify-content: flex-start;
+      -webkit-box-align: start;
+      align-items: flex-start;
+      -webkit-align-items: flex-start;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      flex-wrap: wrap;
+      -webkit-flex-wrap: wrap;
+      width: 100%;
+      height: .16rem;
+    }
+
+    .G6e7gu4Q {
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      height: .16rem;
+      padding: .02rem;
+      font-size: .12rem;
+      line-height: .16rem;
+      color: #e02e24;
+      word-break: break-all;
+      border-radius: .02rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+
+    .G6e7gu4Q:not(:first-child) {
+      margin-left: .04rem;
+    }
+
+    .g9ot7BLS {
+      position: relative;
+    }
+
+    .g9ot7BLS:after {
+      content: "";
+      font-size: 0.08rem;
+      font-family: "icomoon";
+      line-height: 1;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @supports (-webkit-overflow-scrolling: touch) {
+      .g9ot7BLS::after {
+        position: relative;
+        top: .01rem;
+      }
+    }
+
+    .i05tl8lA:first-child {
+      padding-left: 0;
+    }
+
+    .CCxJ5HIw {
+      position: relative;
+      width: 100%;
+      min-height: .23rem;
+      padding-right: .23rem;
+      margin-top: .04rem;
+    }
+
+    .mX9I89Wk {
+      margin-right: .08rem;
+      font-weight: 700;
+    }
+
+    .mX9I89Wk.goxtnMWJ {
+      font-weight: 500;
+    }
+
+    .mX9I89Wk.goxtnMWJ.xfJ5dQHJ {
+      font-weight: 600;
+    }
+
+    .mX9I89Wk .yUtKYufE {
+      position: relative;
+      top: -0.01rem;
+    }
+
+    .FFmH6HIs,
+    .mX9I89Wk {
+      word-break: break-word;
+    }
+
+    .GxB9zW3N {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      height: .22rem;
+      margin-top: .08rem;
+      overflow: hidden;
+      font-family: PingFang SC, Helvetica, STHeiti STXihei, Microsoft YaHei, Microsoft JhengHei, Arial;
+      line-height: .22rem;
+      white-space: nowrap;
+    }
+
+    .ogYgfWiu {
+      margin-left: .04rem;
+      font-size: .13rem;
+      color: #58595b;
+    }
+
+    @supports not (-webkit-overflow-scrolling: touch) {
+      .ogYgfWiu {
+        line-height: .26rem;
+      }
+    }
+
+    .iKO1gvRK {
+      position: relative;
+      top: -0.05rem;
+      width: 100%;
+      height: .2rem;
+    }
+
+    .AJs5C1Nf,
+    .uwzZMvHg,
+    .mPKmwnSd {
+      margin-right: -0.06rem;
+      font-size: .13rem;
+      color: #e02e24;
+    }
+
+    .uwzZMvHg,
+    .AJs5C1Nf {
+      position: relative;
+      top: -0.01rem;
+      margin-right: 0;
+      font-weight: bold;
+    }
+
+    .uwzZMvHg.OI_j99pY,
+    .AJs5C1Nf.OI_j99pY {
+      font-weight: 500;
+    }
+
+    .uwzZMvHg.OI_j99pY.xs94QQfX,
+    .AJs5C1Nf.OI_j99pY.xs94QQfX {
+      font-weight: 600;
+    }
+
+    .lvWbEmVg {
+      width: .14rem;
+      height: .14rem;
+      position: relative;
+      top: -0.02rem;
+      margin-right: .01rem;
+      vertical-align: middle;
+    }
+
+    .mPKmwnSd.Lyoat44j {
+      margin-right: 0;
+    }
+
+    .xIKabl97,
+    .bQvIi9jp,
+    .PAyLVQJz {
+      margin-right: .04rem;
+      font-size: .19rem;
+      font-weight: bold;
+      color: #e02e24;
+    }
+
+    .xIKabl97.Rn5ceAU0,
+    .bQvIi9jp.Rn5ceAU0,
+    .PAyLVQJz.Rn5ceAU0 {
+      font-weight: 500;
+    }
+
+    .xIKabl97.Rn5ceAU0.DHdW9jXt,
+    .bQvIi9jp.Rn5ceAU0.DHdW9jXt,
+    .PAyLVQJz.Rn5ceAU0.DHdW9jXt {
+      font-weight: 600;
+    }
+
+    .xIKabl97::before,
+    .bQvIi9jp::before,
+    .PAyLVQJz::before {
+      font-size: .13rem;
+      content: "￥";
+    }
+
+    .xIKabl97.XJOtFpoO,
+    .bQvIi9jp.XJOtFpoO,
+    .PAyLVQJz.XJOtFpoO {
+      margin-right: 0;
+    }
+
+    .dNuh3V6y {
+      margin-right: 0;
+      font-size: .15rem;
+      font-weight: bold;
+      color: #e02e24;
+    }
+
+    .dNuh3V6y.Ef3bxK8N {
+      font-weight: 500;
+    }
+
+    .dNuh3V6y.Ef3bxK8N.pt3TdCtS {
+      font-weight: 600;
+    }
+
+    .bQvIi9jp {
+      font-size: .15rem;
+    }
+
+    .FFmH6HIs,
+    .hVq1zEvO {
+      position: relative;
+      top: -0.01rem;
+      display: inline-block;
+      font-size: .13rem;
+      color: #9c9c9c;
+    }
+
+    .RImR2Zgg {
+      position: absolute;
+      right: 0;
+      bottom: .03rem;
+      width: .15rem;
+      height: .15rem;
+    }
+
+    .RImR2Zgg:before {
+      content: "";
+      font-size: 0.15rem;
+      color: #d0d0d0;
+      font-family: "icomoon";
+      line-height: 1;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .RImR2Zgg:active::before {
+      color: rgba(0, 0, 0, .3);
+    }
+
+    .GuLycqEo {
+      position: absolute;
+      top: .06rem;
+      right: .8rem;
+      width: .15rem;
+      height: .15rem;
+    }
+
+    .GuLycqEo:before {
+      content: "";
+      font-size: 0.15rem;
+      color: #d0d0d0;
+      font-family: "icomoon";
+      line-height: 1;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .GuLycqEo:active::before {
+      color: rgba(0, 0, 0, .3);
+    }
+
+    .Nh7ZBUec {
+      position: absolute;
+      right: 0;
+      bottom: -0.05rem;
+      width: .68rem;
+      height: .3rem;
+      font-size: .14rem;
+      line-height: .3rem;
+      color: #e02e24;
+      text-align: center;
+      border: 1px solid #e02e24;
+      border-radius: .04rem;
+    }
+
+    .gyR8hzhE {
+      position: relative;
+    }
+
+    .IoSQERoG.Mk1gziJa .h7J5pYhu {
+      max-height: .22rem;
+    }
+
+    .MaWp22s_.xr7lyY7P .aFBkBSNl {
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+      flex-grow: 1;
+      width: auto;
+      height: 1.28rem;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      -webkit-justify-content: space-between;
+      -webkit-box-align: start;
+      align-items: flex-start;
+      -webkit-align-items: flex-start;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+      -webkit-flex-direction: column;
+    }
+
+    .MaWp22s_.xr7lyY7P .aFBkBSNl .VH2b5jWi {
+      min-height: auto;
+    }
+
+    .MaWp22s_.xr7lyY7P .aFBkBSNl .bJi3Qh8O {
+      min-height: auto;
+    }
+
+    .MaWp22s_.xr7lyY7P .QFrWCcpi {
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 1.08rem;
+      flex: 0 0 1.08rem;
+      width: 1.08rem;
+      height: 1.08rem;
+    }
+
+    .MaWp22s_.xr7lyY7P .h7J5pYhu {
+      max-height: .22rem;
+      word-break: break-word;
+    }
+
+    .MaWp22s_.xr7lyY7P .nyIbzjaY {
+      width: 100%;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      -webkit-justify-content: space-between;
+      -webkit-box-align: end;
+      align-items: flex-end;
+      -webkit-align-items: flex-end;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+    }
+
+    .MaWp22s_.xr7lyY7P .nyIbzjaY .HGghQqif {
+      width: .72rem;
+      height: .3rem;
+      -webkit-flex-shrink: 0;
+      flex-shrink: 0;
+      margin-left: .08rem;
+      font-size: .13rem;
+      line-height: .3rem;
+      color: #fff;
+      text-align: center;
+      background: #e02e24;
+      border-radius: .04rem;
+    }
+
+    .MaWp22s_.xr7lyY7P .nyIbzjaY .HGghQqif:active {
+      color: hsla(0, 0%, 100%, .7);
+      background: #c51e14;
+    }
+
+    .MaWp22s_.xr7lyY7P .CCxJ5HIw {
+      overflow: hidden;
+    }
+
+    .sLMwXmNt {
+      position: relative;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-align: baseline;
+      -webkit-align-items: baseline;
+      align-items: baseline;
+      padding-right: .15rem;
+    }
+
+    .sLMwXmNt .CAIpLTfK {
+      margin-right: .04rem;
+    }
+
+    .sLMwXmNt .DDGRFrB4 {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+
+    .eaJE_vt_ {
+      -webkit-box-flex: 0;
+      -webkit-flex-grow: 0;
+      flex-grow: 0;
+      -webkit-flex-shrink: 0;
+      flex-shrink: 0;
+      margin-right: .01rem;
+    }
+
+    .joHSD5zo {
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      color: #fff;
+      width: 1.48rem;
+      height: 100%;
+      position: absolute;
+      right: -1.48rem;
+      bottom: 0;
+      font-size: .15rem;
+      line-height: .7rem;
+      text-align: center;
+    }
+
+    .eCvJAAGg {
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      flex: 1;
+      height: 100%;
+    }
+
+    .qn6kmrgW {
+      width: 100%;
+      height: .2rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: #fdefee;
+      border-radius: 0 0 .02rem .02rem;
+    }
+
+    .qn6kmrgW.VGFKmqxv {
+      background-color: rgba(0, 0, 0, 0);
+    }
+
+    .qn6kmrgW.BkBemLjK {
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: end;
+      justify-content: flex-end;
+      -webkit-justify-content: flex-end;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      background-color: rgba(0, 0, 0, 0);
+    }
+
+    .qn6kmrgW.BkBemLjK .DbZw9CjA {
+      width: .59rem;
+      height: .2rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .qn6kmrgW.BkBemLjK .PxdO3yGH {
+      width: .61rem;
+      height: .2rem;
+      padding-left: .06rem;
+    }
+
+    .qn6kmrgW.BkBemLjK .fmkoBk4a {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-shrink: 0;
+      flex-shrink: 0;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      line-height: .2rem;
+    }
+
+    .fmkoBk4a {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      line-height: .2rem;
+    }
+
+    .BlD8VNkU {
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .BlD8VNkU .Rt87ROH_ {
+      line-height: 1;
+    }
+
+    .BlD8VNkU .YSm7dOpD {
+      max-width: 100%;
+      overflow: hidden;
+      line-height: 1;
+      text-overflow: ellipsis;
+    }
+
+    .BlD8VNkU .BgJjFxUV {
+      position: relative;
+      top: .005rem;
+    }
+
+    .BlD8VNkU .NBVxOrM_ {
+      width: .52rem;
+      line-height: 1;
+      text-align: left;
+    }
+
+    .LO1_mV7P {
+      position: relative;
+      width: 1.97rem;
+      height: .21rem;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      -webkit-justify-content: space-between;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+    }
+
+    .LO1_mV7P:not(:last-child) {
+      margin-bottom: .08rem;
+    }
+
+    .fZnfBfSp {
+      border: 1px solid #e0e0e0;
+      position: relative;
+      border: none !important;
+    }
+
+    .fZnfBfSp::after {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      -webkit-transform-origin: 0 0;
+      transform-origin: 0 0;
+      pointer-events: none;
+      -webkit-transform: scale(0.5);
+      transform: scale(0.5);
+      width: 200%;
+      box-sizing: border-box;
+      border: 1px solid #e0e0e0;
+      border-radius: calc(0.02rem*2);
+      height: calc(0.21rem*2);
+    }
+
+    .OqG7JV01 {
+      position: relative;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      -webkit-justify-content: space-between;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      padding: 0 .14rem 0 .04rem;
+      max-width: 1.65rem;
+      min-width: .46rem;
+      height: .21rem;
+      color: #58595b;
+      font-size: .13rem;
+    }
+
+    .OqG7JV01:after {
+      content: "";
+      font-size: 0.11rem;
+      color: rgba(0, 0, 0, .15);
+      font-family: "icomoon";
+      line-height: 1;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .OqG7JV01::after {
+      position: absolute;
+      top: 52%;
+      right: .02rem;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+
+    .OqG7JV01:active {
+      color: #151516;
+      background-color: #ebebeb;
+    }
+
+    .OqG7JV01:active::after {
+      color: #58595b;
+    }
+
+    .G7CqOu4x {
+      margin-left: .04rem;
+      letter-spacing: 1px;
+    }
+
+    .moVrgG8D {
+      width: 1.65rem;
+    }
+
+    .TpRyCV4E {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      word-break: break-all;
+      overflow: hidden;
+    }
+
+    .vrlihGqL {
+      margin-left: .02rem;
+      -webkit-flex-shrink: 0;
+      flex-shrink: 0;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      -webkit-justify-content: flex-start;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      max-width: 1.19rem;
+    }
+
+    .vrlihGqL .m8tgtaZd {
+      margin-left: .04rem;
+    }
+
+    .F0OAZxOK {
+      position: relative;
+      width: .21rem;
+      height: .21rem;
+    }
+
+    .F0OAZxOK:before {
+      content: "";
+      font-size: 0.11rem;
+      color: rgba(0, 0, 0, .15);
+      font-family: "icomoon-likes";
+      line-height: 1;
+      font-weight: normal;
+    }
+
+    .F0OAZxOK::before {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+
+    .F0OAZxOK:active::before {
+      color: rgba(0, 0, 0, .3);
+    }
+
+    .gZjvxqKS {
+      position: relative;
+      margin-top: .08rem;
+      width: 100%;
+      height: .45rem;
+      text-align: center;
+      line-height: .45rem;
+      background-color: #fff;
+    }
+
+    .gZjvxqKS::after {
+      content: "";
+      position: absolute;
+      display: inline-block;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 0;
+      border-bottom: 1px solid #e5e5e5;
+      -webkit-transform: scaleY(0.5);
+      transform: scaleY(0.5);
+    }
+
+    .C8SwhiIQ {
+      font-size: .16rem;
+      color: #151516;
+    }
+
+    .CEc05K45 {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0 .14rem;
+      height: .45rem;
+      line-height: .45rem;
+      font-size: .13rem;
+      color: #e02e24;
+    }
+
+    .CEc05K45:before {
+      content: "";
+      font-size: 0.13rem;
+      color: #e02e24;
+      font-family: "icomoon";
+      line-height: 1;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .CEc05K45::before {
+      margin-right: .04rem;
+    }
+
+    .CEc05K45:active,
+    .CEc05K45:active::before {
+      color: #c51e14;
+    }
+
+    .N5M1ghJ3 {
+      position: relative;
+      width: 100%;
+      background-color: #fff;
+    }
+
+    .zSskAOLP {
+      border-top: 1px solid rgba(0, 0, 0, .08);
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 1.5) {
+      .zSskAOLP {
+        position: relative;
+        border: none !important;
+      }
+
+      .zSskAOLP::after {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -33.33%;
+        bottom: -33.33%;
+        left: 0;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        pointer-events: none;
+        -webkit-transform: scale(0.75);
+        transform: scale(0.75);
+        width: 133.33%;
+        box-sizing: border-box;
+        border-top: 1px solid rgba(0, 0, 0, .08);
+      }
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 2) {
+      .zSskAOLP {
+        position: relative;
+        border: none !important;
+      }
+
+      .zSskAOLP::after {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -100%;
+        bottom: -100%;
+        left: 0;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        pointer-events: none;
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+        width: 200%;
+        box-sizing: border-box;
+        border-top: 1px solid rgba(0, 0, 0, .08);
+      }
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 3) {
+      .zSskAOLP {
+        position: relative;
+        border: none !important;
+      }
+
+      .zSskAOLP::after {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -202%;
+        bottom: -202%;
+        left: 0;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        pointer-events: none;
+        -webkit-transform: scale(0.33);
+        transform: scale(0.33);
+        width: 300%;
+        box-sizing: border-box;
+        border-top: 1px solid rgba(0, 0, 0, .08);
+      }
+    }
+
+    .RBpPjTym {
+      position: relative;
+      width: 100%;
+      background-color: #fff;
+      overflow: hidden;
+    }
+
+    .NaHmBURl {
+      position: relative;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      -webkit-justify-content: flex-start;
+      -webkit-box-align: start;
+      align-items: flex-start;
+      -webkit-align-items: flex-start;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      width: 100%;
+    }
+
+    .ZxvNGgbE {
+      background-color: #e02e24;
+    }
+
+    .ZxvNGgbE:active {
+      background-color: #c51e14;
+    }
+
+    .QlC_uj6U {
+      position: relative;
+      margin: .16rem .08rem .16rem .12rem;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 .66rem;
+      flex: 0 0 .66rem;
+      width: .66rem;
+      height: .66rem;
+      text-align: center;
+      border-radius: .02rem;
+      overflow: hidden;
+    }
+
+    .QlC_uj6U::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: hsla(0, 0%, 100%, .45);
+    }
+
+    .QlC_uj6U>img[src=""],
+    .QlC_uj6U>img:not([src]) {
+      opacity: 0;
+    }
+
+    .o0M8bD88 {
+      opacity: .5;
+    }
+
+    .IQXlayVE {
+      width: 100%;
+      height: 100%;
+    }
+
+    .oVbAQmf6 {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: .24rem;
+      line-height: .24rem;
+      font-size: .13rem;
+      color: #fff;
+      background-color: rgba(0, 0, 0, .5);
+    }
+
+    .Ssy0K9lK {
+      position: relative;
+      padding: .13rem .12rem .13rem 0;
+      width: 2.89rem;
+    }
+
+    .OAPAUwtB {
+      margin-bottom: .03rem;
+      font-size: .15rem;
+      line-height: .22rem;
+      color: #151516;
+      height: .44rem;
+      overflow: hidden;
+      word-break: break-all;
+    }
+
+    .q3iHkpkS {
+      position: relative;
+      width: 100%;
+      height: .23rem;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      -webkit-justify-content: space-between;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+    }
+
+    .ZlTB2qI1 {
+      margin-right: .04rem;
+      font-size: .19rem;
+      font-weight: bold;
+      color: #e02e24;
+    }
+
+    .ZlTB2qI1::before {
+      content: "￥";
+      font-size: .13rem;
+    }
+
+    .nz7phKgf {
+      width: .15rem;
+      height: .15rem;
+    }
+
+    .nz7phKgf:before {
+      content: "";
+      font-size: 0.15rem;
+      color: #d0d0d0;
+      font-family: "icomoon";
+      line-height: 1;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .nz7phKgf:active::before {
+      color: rgba(0, 0, 0, .3);
+    }
+
+    .lFCGHszU {
+      position: absolute;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      -webkit-justify-content: flex-start;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      height: .37rem;
+      padding: 0 .12rem .16rem .28rem;
+      right: .33rem;
+      bottom: 0;
+      text-align: center;
+      font-size: .15rem;
+      color: #58595b;
+    }
+
+    .lFCGHszU:after {
+      content: "";
+      font-size: 0.11rem;
+      color: #58595b;
+      font-family: "icomoon";
+      line-height: 1;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .lFCGHszU::after {
+      display: inline-block;
+      width: .12rem;
+      height: .12rem;
+      margin-left: .04rem;
+      -webkit-transition: -webkit-transform .25s;
+      transition: -webkit-transform .25s;
+      transition: transform .25s;
+      transition: transform .25s, -webkit-transform .25s;
+      position: relative;
+      top: .01rem;
+    }
+
+    @supports not (-webkit-overflow-scrolling: touch) {
+      .lFCGHszU::after {
+        top: .02rem;
+      }
+    }
+
+    .lFCGHszU:active {
+      color: #151516;
+    }
+
+    .lFCGHszU:active::after {
+      color: #151516;
+    }
+
+    .SEIuxWGm::after {
+      -webkit-transform: rotate(-180deg);
+      transform: rotate(-180deg);
+      top: 0;
+    }
+
+    @supports not (-webkit-overflow-scrolling: touch) {
+      .SEIuxWGm::after {
+        top: -0.01rem;
+      }
+    }
+
+    .urchIFeP {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: hsla(0, 0%, 100%, 0);
+      z-index: 20;
+    }
+
+    .uq7WgWpi {
+      position: absolute;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      -webkit-justify-content: flex-start;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+      -webkit-flex-direction: column;
+      top: .88rem;
+      right: .1rem;
+      border-radius: .04rem;
+      background-color: #fff;
+      box-shadow: 0 0 .1rem 0 rgba(0, 0, 0, .2);
+      z-index: 10001;
+    }
+
+    .uq7WgWpi::before {
+      content: "";
+      position: absolute;
+      width: .14rem;
+      height: .05rem;
+      background-image: url(https://funimg.pddpic.com/personal/bubble-arrow-v2.png);
+      background-size: 100% 100%;
+      right: .02rem;
+      top: -0.04rem;
+    }
+
+    .z96OFR79 {
+      position: relative;
+      width: 1.2rem;
+      height: .44rem;
+      line-height: .44rem;
+      font-size: .14rem;
+      text-align: center;
+      z-index: 30;
+    }
+
+    .z96OFR79:not(:first-child)::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: .12rem;
+      width: .96rem;
+      height: 1px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .z96OFR79:active+.z96OFR79::before,
+    .z96OFR79:active::before {
+      display: none;
+    }
+
+    .z96OFR79:first-child {
+      border-top-left-radius: .04rem;
+      border-top-right-radius: .04rem;
+    }
+
+    .z96OFR79:last-child {
+      border-bottom-left-radius: .04rem;
+      border-bottom-right-radius: .04rem;
+    }
+
+    .Tbr_H7At {
+      height: 1rem;
+      padding: 0 0 .16rem 0;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      -webkit-justify-content: flex-start;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+    }
+
+    .gsMQ9cKK {
+      width: .24rem;
+      height: .24rem;
+      margin: 0 auto;
+      background: url("https://funimg.pddpic.com/core-ui/spinner.png") 0 0 no-repeat;
+      background-size: contain;
+      -webkit-animation: WwUZTaPY 2.5s linear infinite;
+      animation: WwUZTaPY 2.5s linear infinite;
+    }
+
+    .I5VcV8hE {
+      width: 100%;
+      height: 1rem;
+      font-size: .14rem;
+      color: #9c9c9c;
+      background-color: #f4f4f4;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+    }
+
+    .frWDMA_Y {
+      color: #076fff;
+    }
+
+    @-webkit-keyframes WwUZTaPY {
+      0% {
+        -webkit-transform: rotateZ(0deg);
+        transform: rotateZ(0deg);
+      }
+
+      50% {
+        -webkit-transform: rotateZ(180deg);
+        transform: rotateZ(180deg);
+      }
+
+      100% {
+        -webkit-transform: rotateZ(360deg);
+        transform: rotateZ(360deg);
+      }
+    }
+
+    @keyframes WwUZTaPY {
+      0% {
+        -webkit-transform: rotateZ(0deg);
+        transform: rotateZ(0deg);
+      }
+
+      50% {
+        -webkit-transform: rotateZ(180deg);
+        transform: rotateZ(180deg);
+      }
+
+      100% {
+        -webkit-transform: rotateZ(360deg);
+        transform: rotateZ(360deg);
+      }
+    }
+
+    .wwlv5KxH {
+      display: none;
+    }
+
+    .unw4eli4 {
+      height: .84rem;
+      white-space: nowrap;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .unw4eli4::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cMlhUPC1 {
+      position: relative;
+      display: inline-block;
+      width: .84rem;
+      height: .84rem;
+      border-radius: .02rem;
+      overflow: hidden;
+    }
+
+    .cMlhUPC1:not(:last-child) {
+      margin-right: .04rem;
+    }
+
+    .cMlhUPC1:first-child {
+      margin-left: .12rem;
+    }
+
+    .cMlhUPC1:last-child {
+      margin-right: .12rem;
+    }
+
+    .mLJHFpDE {
+      width: .55rem;
+      height: .84rem;
+      border: 1px solid rgba(0, 0, 0, .05);
+      color: #58595b;
+      vertical-align: top;
+    }
+
+    .mLJHFpDE:active {
+      color: #151516;
+    }
+
+    .RsQYRAap {
+      width: .14rem;
+      margin: 0 auto;
+      line-height: .17rem;
+      white-space: normal;
+      word-break: break-all;
+      font-size: .13rem;
+      position: relative;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+
+    .yD8b9wA3 {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .yD8b9wA3::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, .04);
+    }
+
+    .SZ6t9khE {
+      width: 100%;
+      height: 100%;
+    }
+
+    .TLks9z3O {
+      position: absolute;
+      width: .84rem;
+      text-align: center;
+      bottom: .04rem;
+    }
+
+    .WGH_0Yew {
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      display: -webkit-inline-box;
+      display: -webkit-inline-flex;
+      display: inline-flex;
+      border-radius: .1rem;
+      line-height: 1;
+      background: rgba(0, 0, 0, .7);
+      color: #fff;
+      font-size: .13rem;
+      padding: .04rem .06rem;
+      margin: 0 .08rem;
+      max-width: .68rem;
+    }
+
+    .WGH_0Yew>i {
+      margin-right: .02rem;
+    }
+
+    .e93PNggp {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .WMOfs7Xi {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 9998;
+      width: 100%;
+    }
+
+    .yqh2Ru2U {
+      position: relative;
+      z-index: 9999;
+      text-align: center;
+      background-color: #fff;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: end;
+      justify-content: flex-end;
+      -webkit-justify-content: flex-end;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+    }
+
+    .ywVT1yf9 {
+      position: relative;
+      width: 2.37rem;
+      height: .54rem;
+      line-height: .54rem;
+      border-top: 1px solid #ededed;
+    }
+
+    .K4LjpeWZ {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: .54rem;
+      padding-left: .12rem;
+      font-size: .13rem;
+      line-height: .54rem;
+      color: #9c9c9c;
+    }
+
+    .K4LjpeWZ::after {
+      position: relative;
+      bottom: 0;
+      left: .02rem;
+      display: inline-block;
+      -webkit-transition: -webkit-transform .25s;
+      transition: -webkit-transform .25s;
+      transition: transform .25s;
+      transition: transform .25s, -webkit-transform .25s;
+    }
+
+    .UVMjVVsl {
+      line-height: .36rem;
+    }
+
+    .G3bftuWa {
+      color: #58595b;
+    }
+
+    .G3bftuWa:after {
+      content: "";
+      font-size: 0.11rem;
+      color: rgba(0, 0, 0, .15);
+      font-family: "icomoon";
+      line-height: 1;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .yTda9lxf::after {
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
+
+    .juL5nAMQ {
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-justify-content: center;
+      -webkit-box-align: end;
+      align-items: flex-end;
+      -webkit-align-items: flex-end;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+      -webkit-flex-direction: column;
+      height: 100%;
+      padding-right: .12rem;
+    }
+
+    .q7zIJDoz {
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: end;
+      justify-content: flex-end;
+      -webkit-justify-content: flex-end;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      height: .18rem;
+      line-height: 1;
+    }
+
+    .q7zIJDoz .SZVQ6sS5 {
+      margin-top: .03rem;
+      margin-right: -0.04rem;
+    }
+
+    @supports not (-webkit-overflow-scrolling: touch) {
+      .q7zIJDoz .SZVQ6sS5 {
+        margin-top: .04rem;
+      }
+    }
+
+    .L0VFAXlw {
+      font-size: .21rem;
+      font-weight: bold;
+      color: #e02e24;
+    }
+
+    .L0VFAXlw.Dt1H47ox {
+      font-weight: 500;
+    }
+
+    .L0VFAXlw.Dt1H47ox.g8Tz7q4U {
+      font-weight: 600;
+    }
+
+    .L0VFAXlw::before {
+      font-size: .13rem;
+      content: "￥";
+    }
+
+    .Rozx8ZsT {
+      margin-top: .04rem;
+      font-size: .15rem;
+      font-weight: bold;
+      color: #e02e24;
+    }
+
+    .Rozx8ZsT.Fa7S7aeU {
+      font-weight: 500;
+    }
+
+    .Rozx8ZsT.Fa7S7aeU.YanwN0ih {
+      font-weight: 600;
+    }
+
+    .GPd51V6E .K4LjpeWZ {
+      font-size: .13rem;
+    }
+
+    .GPd51V6E .SZVQ6sS5 {
+      font-size: .12rem;
+    }
+
+    .GPd51V6E .L0VFAXlw {
+      font-size: .18rem;
+    }
+
+    .GPd51V6E .L0VFAXlw::before {
+      font-size: .12rem;
+    }
+
+    .YAXFx1m4 .K4LjpeWZ {
+      font-size: .12rem;
+    }
+
+    .YAXFx1m4 .SZVQ6sS5 {
+      font-size: .11rem;
+    }
+
+    .YAXFx1m4 .L0VFAXlw {
+      font-size: .15rem;
+    }
+
+    .YAXFx1m4 .L0VFAXlw::before {
+      font-size: .11rem;
+    }
+
+    .lrSpvJsT {
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: end;
+      justify-content: flex-end;
+      -webkit-justify-content: flex-end;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      height: .13rem;
+      margin-top: .05rem;
+      line-height: 1;
+      white-space: pre;
+    }
+
+    .SZVQ6sS5 {
+      font-size: .14rem;
+      color: #151516;
+    }
+
+    .kbZkaIxU {
+      font-size: .12rem;
+      color: #e02e24;
+    }
+
+    ._xHvq6Fo {
+      position: relative;
+      width: 1.38rem;
+      height: .54rem;
+      font-size: .17rem;
+      line-height: .54rem;
+      color: #fff;
+      background-color: #e02e24;
+    }
+
+    .VFGjb_Oj {
+      position: absolute;
+      top: -0.45rem;
+      right: .08rem;
+      width: 1.78rem;
+      height: .4rem;
+      padding-bottom: .06rem;
+      font-size: .14rem;
+      line-height: .34rem;
+      color: #fff;
+      background: url("https://funimg.pddpic.com/like/v2/goods_collection_popup_tips.png");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+
+    @supports (padding: env(safe-area-inset-top)) or (padding: constant(safe-area-inset-top)) {
+      .yqh2Ru2U {
+        padding-bottom: "0px";
+        padding-bottom: calc(0px + constant(safe-area-inset-bottom));
+        padding-bottom: calc(0px + env(safe-area-inset-bottom));
+        background-color: #fff;
+      }
+
+      @supports (-webkit-overflow-scrolling: touch) {
+        .FvqNOgQv {
+          padding-bottom: 34px;
+        }
+      }
+    }
+
+    .dSci01kP {
+      position: absolute;
+      top: -0.4rem;
+      right: .08rem;
+      box-sizing: content-box;
+      width: -webkit-fit-content;
+      width: fit-content;
+      height: .29rem;
+      padding: 0 .12rem;
+      font-size: .12rem;
+      font-weight: bold;
+      line-height: .29rem;
+      color: #fff;
+      background: rgba(0, 0, 0, .8);
+      border-radius: .02rem;
+    }
+
+    .zQUi06h_ {
+      position: absolute;
+      right: .08rem;
+      bottom: -0.04rem;
+      width: 0;
+      height: 0;
+      border-top: .04rem solid rgba(0, 0, 0, .8);
+      border-right: .04rem solid rgba(0, 0, 0, 0);
+      border-left: .04rem solid rgba(0, 0, 0, 0);
+    }
+
+    .U22z9lSu {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      width: 1.38rem;
+      height: .54rem;
+      font-size: .18rem;
+      color: #fff;
+      background-color: #e02e24;
+    }
+
+    .dg2mtPkg {
+      font-size: .14rem;
+      color: #fff;
+    }
+
+    .dg2mtPkg>i {
+      display: inline-block;
+      width: .17rem;
+    }
+
+    .NLe8zzt6 {
+      position: relative;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      -webkit-justify-content: space-between;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      padding: 0 .12rem;
+      width: 3.75rem;
+      height: .38rem;
+      background-color: #fff5b2;
+    }
+
+    .BinWItg4 {
+      width: 3rem;
+      height: .38rem;
+    }
+
+    .fM1mfP6S {
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      -webkit-justify-content: flex-start;
+      -webkit-box-align: start;
+      align-items: flex-start;
+      -webkit-align-items: flex-start;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      flex-wrap: wrap;
+      -webkit-flex-wrap: wrap;
+      height: .38rem;
+    }
+
+    .pcjgmKwI {
+      position: relative;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: end;
+      justify-content: flex-end;
+      -webkit-justify-content: flex-end;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      padding: 0 .12rem;
+      height: .38rem;
+      line-height: .38rem;
+      text-align: center;
+      -webkit-flex-shrink: 0;
+      flex-shrink: 0;
+      color: #58595b;
+    }
+
+    .pcjgmKwI:after {
+      content: "";
+      font-size: 0.11rem;
+      color: rgba(0, 0, 0, .15);
+      font-family: "icomoon";
+      line-height: 1;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .pcjgmKwI::after {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+
+    .KSOsVS5m {
+      margin-right: .04rem;
+      width: .22rem;
+      height: .22rem;
+      border-radius: .02rem;
+    }
+
+    .GmQt9EEi {
+      -webkit-flex-shrink: 0;
+      flex-shrink: 0;
+    }
+
+    .tTeKFO6W {
+      position: relative;
+      display: -webkit-box;
+      display: flex;
+      display: -webkit-flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      flex-direction: row;
+      -webkit-flex-direction: row;
+      margin-bottom: 1rem;
+      height: .38rem;
+    }
+
+    .K4LESjBU {
+      margin-left: .04rem;
+      padding: .02rem;
+      color: #e02e24;
+      font-size: .12rem;
+      line-height: 1;
+      border-radius: .02rem;
+      border: 1px solid #e02e24;
+    }
+
+    .ZnQ0fDjo {
+      display: inline-block;
+      white-space: nowrap;
+      color: #151516;
+      font-size: .13rem;
+    }
+
+    .SE7iNn8h {
+      height: .32rem;
+      padding: 0 .12rem;
+      line-height: .32rem;
+      position: absolute;
+      left: 50%;
+      top: -0.39rem;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      border-radius: .04rem;
+      background-color: rgba(0, 0, 0, .8);
+    }
+
+    .SE7iNn8h>.PdKfUrNS {
+      width: .12rem;
+      height: .04rem;
+      position: absolute;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      bottom: -0.04rem;
+    }
+
+    .SE7iNn8h>.HRKHkKtw {
+      white-space: nowrap;
+    }
+  </style>
+  <script>
+    ! function (t) {
+      var n = t._plt = t._plt || [];
+      n.push(["tm", "fp", +new Date]), document.addEventListener("DOMContentLoaded", function () {
+        n.push(["tm", "dr", +new Date])
+      }), t.addEventListener("load", function () {
+        n.push(["tm", "ld", +new Date])
+      })
+    }(window);
+  </script>
+
+  <div id="main" class="container">
+    <div class="yKBWKhUH">
+      <div class="Zd9ZyjzL">
+        <div class="SD81YIc6" style="top:0.00rem">
+          <div class="c2d2NNh5">
+            <div class="RYNG5rqg">搜索你收藏的商品</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="infinite-list-wrapper">
+          <div class="nbYqTNZ_">
+            <div class="ImRc8op6 MmNgMUQY" style="margin-top:0">
+              <div class="tG4avwFZ">
+                <div class="GC4LeUcc">
+                  <div class="dXGqbnD7"><img class="pdd-lazy-image " /></div>
+                  <div class="zWiKT2hK"><span class="tp4dH7ng">华为官方旗舰店</span><img class="wEKH2Hvs"
+                      src="https://funimg.pddpic.com/e33ac3c7-c1c1-4bec-a21d-5c50267933e7.png.slim.png?imageView2/2/w/1300/q/80" />
+                    <div class="ubgXufvC"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="WBtFrvAk"></div>
+            <div class="lsV8hrhO">
+              <div class="xr7lyY7P">
+                <div class="IoSQERoG Mk1gziJa">
+                  <div class="fEpmknKW">
+                    <div class="NsVylJKY">
+                      <div class="OCSHkc1Q"></div>
+                    </div>
+                    <div class="QFrWCcpi"><img class="pdd-lazy-image cyzGToFK" />
+                      <div class="BlD8VNkU qn6kmrgW"><img
+                          src="https://commimg.pddpic.com/upload/transaction/0489464a-3165-4d27-b98b-37c731324b17.png.slim.png?imageView2/2/w/1300/q/80"
+                          class="Rt87ROH_" style="width:0.11rem;height:0.11rem" /><span
+                          style="color:#E02E24;font-size:0.12rem" class="YSm7dOpD fmkoBk4a">抢剩1件</span></div>
+                    </div>
+                    <div class="aFBkBSNl qJbo4QgV">
+                      <div class="VH2b5jWi">
+                        <div class="bJi3Qh8O HUxJGfzs">
+                          <div class="h7J5pYhu"><img
+                              src="https://img.pddpic.com/social/pincard/1/share.png?imageView2/2/w/1300/q/80"
+                              class="x2OzWEg2" /><img
+                              src="https://img.pddpic.com/aid-image/brand_black_label_combine/76d79f9163244a0196e1fe20b7e2f741.png?imageView2/2/w/1300/q/80"
+                              class="x2OzWEg2" />【新品】HUAWEI Mate XTs | ULTIMATE DESIGN非凡大师鸿蒙大屏AI</div>
+                          <div class="MQrxogdZ">
+                            <div class="LO1_mV7P">
+                              <div class="fZnfBfSp">
+                                <div class="OqG7JV01 moVrgG8D"><span class="TpRyCV4E">槿紫;16GB+1TB;官方标配;全网通版</span><span
+                                    class="vrlihGqL"><span class="G7CqOu4x">×1</span></span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="j7XGqOki">
+                          <div class="o3ue2bYQ">
+                            <div class="G6e7gu4Q i05tl8lA" style="color:#E02E24">关注的店</div>
+                            <div class="G6e7gu4Q i05tl8lA" style="color:#9C9C9C">正品发票</div>
+                            <div class="G6e7gu4Q i05tl8lA" style="color:#9C9C9C">正品险</div>
+                            <div class="G6e7gu4Q i05tl8lA" style="color:#9C9C9C">退货包运费</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="sLMwXmNt">
+                        <div class="CAIpLTfK"><span class="uwzZMvHg OI_j99pY xs94QQfX">补贴价</span><span
+                            class="xIKabl97 XJOtFpoO Rn5ceAU0 DHdW9jXt">21999</span></div>
+                        <div class="DDGRFrB4"></div>
+                        <div class="RImR2Zgg" style="height:0.15rem"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nbYqTNZ_">
+            <div class="ImRc8op6 MmNgMUQY" style="margin-top:0">
+              <div class="tG4avwFZ">
+                <div class="GC4LeUcc">
+                  <div class="dXGqbnD7"><img class="pdd-lazy-image " /></div>
+                  <div class="zWiKT2hK"><span class="tp4dH7ng">华为手机专卖店</span>
+                    <div class="ubgXufvC"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="WBtFrvAk"></div>
+            <div class="lsV8hrhO">
+              <div class="xr7lyY7P">
+                <div class="IoSQERoG Mk1gziJa">
+                  <div class="fEpmknKW">
+                    <div class="NsVylJKY">
+                      <div class="OCSHkc1Q"></div>
+                    </div>
+                    <div class="QFrWCcpi"><img class="pdd-lazy-image cyzGToFK" />
+                      <div class="BlD8VNkU qn6kmrgW"><img
+                          src="https://commimg.pddpic.com/upload/transaction/0489464a-3165-4d27-b98b-37c731324b17.png.slim.png?imageView2/2/w/1300/q/80"
+                          class="Rt87ROH_" style="width:0.11rem;height:0.11rem" /><span
+                          style="color:#E02E24;font-size:0.12rem" class="YSm7dOpD fmkoBk4a">抢剩1件</span></div>
+                    </div>
+                    <div class="aFBkBSNl qJbo4QgV">
+                      <div class="VH2b5jWi">
+                        <div class="bJi3Qh8O HUxJGfzs">
+                          <div class="h7J5pYhu"><img
+                              src="https://img.pddpic.com/social/pincard/1/share.png?imageView2/2/w/1300/q/80"
+                              class="x2OzWEg2" /><img
+                              src="https://promotion.pddpic.com/promo/gexinghua/0ac91857-db53-4a63-9c25-3fba32284e8f.png?imageView2/2/w/1300/q/80"
+                              class="x2OzWEg2" />【新品上市】HUAWEI 华为 Mate XTs 非凡大师 智能手机</div>
+                          <div class="MQrxogdZ">
+                            <div class="lXoajHYh">
+                              <div class="Ducmpudf">
+                                <div class="PTuCEsiF"><span class="FavSmBd0">请选择款式</span></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="j7XGqOki">
+                          <div class="o3ue2bYQ">
+                            <div class="G6e7gu4Q i05tl8lA" style="color:#E02E24">关注的店</div>
+                            <div class="G6e7gu4Q i05tl8lA" style="color:#9C9C9C">正品发票</div>
+                            <div class="G6e7gu4Q i05tl8lA" style="color:#9C9C9C">顺丰包邮</div>
+                            <div class="G6e7gu4Q i05tl8lA" style="color:#9C9C9C">正品险</div>
+                            <div class="G6e7gu4Q i05tl8lA" style="color:#9C9C9C">退货包运费</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="sLMwXmNt">
+                        <div class="CAIpLTfK"><span class="uwzZMvHg OI_j99pY xs94QQfX">补贴价</span><span
+                            class="xIKabl97 XJOtFpoO Rn5ceAU0 DHdW9jXt">19999</span></div>
+                        <div class="DDGRFrB4"></div>
+                        <div class="RImR2Zgg" style="height:0.15rem"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lsV8hrhO">
+            <div class="gZjvxqKS"><span class="C8SwhiIQ">售罄商品</span>
+              <div class="CEc05K45">全部删除</div>
+            </div>
+            <div class="N5M1ghJ3">
+              <div class="RBpPjTym">
+                <div class="fEpmknKW">
+                  <div class="QlC_uj6U"><img class="pdd-lazy-image IQXlayVE o0M8bD88" />
+                    <div class="oVbAQmf6">已售罄</div>
+                  </div>
+                  <div class="Ssy0K9lK">
+                    <div class="OAPAUwtB o0M8bD88">【新品上市】HUAWEI Mate XTs非凡大师智能手机咨询客服有惊喜【30天内发货】</div>
+                    <div class="q3iHkpkS"><span class="ZlTB2qI1 o0M8bD88">49999</span>
+                      <div class="nz7phKgf"></div>
+                    </div>
+                  </div>
+                  <div class="lFCGHszU">在售同款</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="width:100%;height:1px"></div>
+        </div>
+      </div>
+      <div class="WMOfs7Xi" style="bottom:0">
+        <div class="yqh2Ru2U">
+          <div class="ywVT1yf9">
+            <div class="K4LjpeWZ">已选0款</div>
+            <div class="juL5nAMQ">
+              <div class="q7zIJDoz"><span class="SZVQ6sS5">合计：</span><span class="L0VFAXlw Dt1H47ox g8Tz7q4U">0</span>
+              </div>
+            </div>
+          </div>
+          <div class="_xHvq6Fo" data-active="red">去结算</div>
+        </div>
+      </div>
+      <script>
+        ! function (e, t) {
+          var n = e._plt = e._plt || [];
+          n.fs = n.fs || !0;
+          var r = +new Date;
+          n.push(["tm", "fsn", r]);
+          var i = t.getElementsByTagName("img"),
+            a = t.documentElement.clientHeight,
+            o = [],
+            m = "complete" === t.readyState,
+            s = function () {
+              for (var e = 0; e < o.length; e++) {
+                var t = o[e],
+                  i = t.img.getBoundingClientRect().top || 0,
+                  m = i + t.img.height > 0 && a > i;
+                t.isInFs = m, m && (r = Math.max(t.time, r))
+              }
+              n.push(["tm", "fs", r])
+            };
+
+          function v() {
+            for (var e = !0, t = 0; t < o.length; t++)
+              if (!(e = e && o[t].time)) return;
+            s()
+          }
+          for (var d = 0; d < i.length; d++) {
+            var f = i[d];
+            !f.complete && f.src && function () {
+              var e = {
+                  img: f
+                },
+                t = function t() {
+                  this.removeEventListener("load", t, !1), this.removeEventListener("error", t, !1), e.time = +
+                    new Date, m && v()
+                };
+              f.addEventListener("load", t, !1), f.addEventListener("error", t, !1), o.push(e)
+            }()
+          }
+          m ? v() : e.addEventListener("load", s), e.__fsImgItems = o
+        }(window, document);
+      </script>
+    </div>
+  </div>
+
+  <script>
+    window.rawData = {
+      "searchStore": {
+        "errorRedirectUrl": "\u002F",
+        "isEmbedded": true,
+        "userID": "1873829233",
+        "hostname": "mobile.yangkeduo.com",
+        "isServerRendered": true,
+        "isFinishInitLoading": true,
+        "showSearchBar": false,
+        "keyWord": "",
+        "focused": false,
+        "history": []
+      },
+      "baseStore": {
+        "errorRedirectUrl": "\u002F",
+        "baseService": {},
+        "collectionService": {},
+        "ifOpenDeflateToOrderPage": true,
+        "page": 2,
+        "scrollTop": 0,
+        "goodsLimitation": {
+          "0": {
+            "maxBuyNumber": 10,
+            "warningMessage": "请选择非全球购商品合并支付",
+            "limitWarningMessage": "一次最多可购买10款商品"
+          },
+          "1": {
+            "maxBuyNumber": 10,
+            "warningMessage": "请选择全球购商品合并支付",
+            "limitWarningMessage": "一次最多可购买10款商品"
+          }
+        },
+        "singleGoodsMaxPrice": 9500000,
+        "singleGoodsMaxPriceToast": "单商品总金额不得超过9.5万元",
+        "requestArr": [],
+        "removedGoodsIdList": [],
+        "impressedMalls": [],
+        "basketDisabled": false,
+        "skuOverloadText": "你已添加了所有款式",
+        "useCache": false,
+        "recListId": "addon_o1ejfu",
+        "queries": {
+          "_x_share_id": "713ed2cf45524d02b8c680b57d75683a",
+          "refer_page_name": "personal",
+          "refer_page_id": "10001_1757666270017_zndaelpviy",
+          "refer_page_sn": "10001",
+          "storeSelect": "true"
+        },
+        "skinInfo": {
+          "showBackground": false,
+          "fontColor": "#151516",
+          "btnColor": "#151516"
+        },
+        "isAndroid": true,
+        "hasError": false,
+        "useLocalStorage": false,
+        "firstPageGoodsList": [],
+        "filterListEndMessage": "暂时仅显示可购买的商品",
+        "goodsSet": {
+          "804551533601": {
+            "discountRichText": {},
+            "canMergePay": false,
+            "cantMergePayDoc": "暂不支持合并支付，请点击商品图片预约",
+            "goodsId": 804551533601,
+            "goodsName": "【新品】HUAWEI Mate XTs | ULTIMATE DESIGN非凡大师鸿蒙大屏AI【10月6日发完】",
+            "shortName": "【新品】HUAWEI Mate XTs | ULTIMATE DESIGN非凡大师鸿蒙大屏AI",
+            "quantity": 1,
+            "groupId": 141419506861,
+            "likeFrom": 39,
+            "isSpike": false,
+            "startTime": -1,
+            "price": 2199900,
+            "goodsLimitNumber": 1,
+            "isOnSale": true,
+            "thumbUrl": "https:\u002F\u002Fimg.pddpic.com\u002Fgaudit-image\u002F2025-09-12\u002Fe1c96fc06505edfff08cfe48c971f1eb.jpeg",
+            "hdUrl": "https:\u002F\u002Fimg.pddpic.com\u002Fmms-goods-image\u002F2025-09-12\u002F24ac0333-de91-4efe-ac79-c13401d651b2.jpeg.a.jpeg",
+            "skuIdList": [1778825864948],
+            "isSingleSku": true,
+            "salesTip": "",
+            "isFav": true,
+            "favoritedTime": 1757647518,
+            "favDate": "9月12日",
+            "tagList": [{
+              "desc": "关注的店",
+              "textColor": "#E02E24",
+              "tagType": 3
+            }, {
+              "desc": "正品发票",
+              "textColor": "#9C9C9C",
+              "tagType": 1
+            }, {
+              "desc": "正品险",
+              "textColor": "#9C9C9C",
+              "tagType": 1
+            }, {
+              "desc": "退货包运费",
+              "textColor": "#9C9C9C",
+              "tagType": 1
+            }],
+            "detailId": 11713640894,
+            "goodsPageUrl": "goods.html?goods_id=804551533601&_oak_rcto=YWJLIe5H9n1-aacLFcm0c1H0QE2eZZWx_yR1eITYqF-srGjArwKrESem&page_from=39",
+            "goodsIcons": [{
+              "tag_series": 2,
+              "tag_id": 20001,
+              "url": "http:\u002F\u002Fimg.pddpic.com\u002Fsocial\u002Fpincard\u002F1\u002Fshare.png",
+              "width": 156,
+              "height": 42
+            }, {
+              "tag_series": 2,
+              "tag_id": 10014,
+              "url": "https:\u002F\u002Fimg.pddpic.com\u002Faid-image\u002Fbrand_black_label_combine\u002F76d79f9163244a0196e1fe20b7e2f741.png",
+              "width": 159,
+              "height": 42,
+              "ext_map": {
+                "black_brand_merge_brand_name": "华为"
+              }
+            }],
+            "mergePayType": 0,
+            "soldoutStatus": 0,
+            "mallId": 229653554,
+            "mallName": "华为官方旗舰店",
+            "mallLogo": "http:\u002F\u002Ft16img.yangkeduo.com\u002Fpdd_ims\u002FmainObject\u002Fv1\u002Fpub_202504161664920605a54d87abb9af7587ed4939.jpg",
+            "mallPageUrl": "mall_page.html?mall_id=229653554&msn=mk2zsjm3sul2nb52sh3fqawu34_axbuy&_sop_rcto=YWJP0JFf4aaZKdHJLj5qzjhcANu2QzJPNh4&has_decoration=1&mall_tab_key=mall_goods",
+            "mallButtonText": "进店逛逛",
+            "mallIcons": [{
+              "iconType": 1,
+              "url": "https:\u002F\u002Ffunimg.pddpic.com\u002Fe33ac3c7-c1c1-4bec-a21d-5c50267933e7.png.slim.png",
+              "width": 162,
+              "height": 48
+            }],
+            "mallTagList": [],
+            "mallFullBackTagList": [],
+            "mergePayList": [{
+              "skuId": 1778825864948,
+              "spec": [{
+                "key": "机身颜色",
+                "value": "槿紫"
+              }, {
+                "key": "存储容量",
+                "value": "16GB+1TB"
+              }, {
+                "key": "套餐类型",
+                "value": "官方标配"
+              }, {
+                "key": "网络类型",
+                "value": "全网通版"
+              }],
+              "skuQuantity": 1,
+              "skuPrice": 2199900,
+              "skuThumbUrl": "https:\u002F\u002Fimg.pddpic.com\u002Fmms-material-img\u002F2025-09-04\u002F40c4c273-e3e5-48b2-94f5-291bc7714e2f.jpeg.a.jpeg",
+              "skuOnSale": true,
+              "amount": 1,
+              "hasQuantity": true,
+              "skuSuffix": []
+            }],
+            "skuSuffixCacheMap": {
+              "1778825864948": []
+            },
+            "pxqInfo": {
+              "friendAvatarList": [],
+              "pxqTagList": []
+            },
+            "recSimilarUrl": "search_bbk.html?goods_id=804551533601&bbk_scene=rec_sim&scene=img&source=10450&self_info=1",
+            "mktInfo": {},
+            "pRec": null,
+            "ad": null,
+            "goodsPicRichText": [{
+              "url": "https:\u002F\u002Fcommimg.pddpic.com\u002Fupload\u002Ftransaction\u002F0489464a-3165-4d27-b98b-37c731324b17.png.slim.png",
+              "width": 11,
+              "height": 11,
+              "text": "",
+              "displayType": 100
+            }, {
+              "url": "",
+              "text": "抢剩1件",
+              "fontColor": "#E02E24",
+              "fontSize": 12,
+              "displayType": 0
+            }],
+            "goodsPicInfo": {
+              "bgImg": "",
+              "type": 0,
+              "prefixImg": ""
+            },
+            "activityPricePrefix": "补贴价",
+            "activityPriceIcon": "",
+            "neckBarDisplayItems": [],
+            "neckBarContainerStyle": {
+              "backgroundImage": ""
+            }
+          },
+          "804532954638": {
+            "discountRichText": {},
+            "canMergePay": false,
+            "cantMergePayDoc": "暂不支持合并支付，请点击商品图片预约",
+            "goodsId": 804532954638,
+            "goodsName": "【新品上市】HUAWEI 华为 Mate XTs 非凡大师 智能手机【30天内发货】",
+            "shortName": "【新品上市】HUAWEI 华为 Mate XTs 非凡大师 智能手机",
+            "quantity": 6,
+            "groupId": 141538773983,
+            "likeFrom": 23,
+            "isSpike": false,
+            "startTime": -1,
+            "price": 1999900,
+            "goodsLimitNumber": 1,
+            "isOnSale": true,
+            "thumbUrl": "https:\u002F\u002Fimg.pddpic.com\u002Fgaudit-image\u002F2025-09-09\u002F1628efcb639ea0d37edbaa9e33c8d5dc.jpeg",
+            "hdUrl": "https:\u002F\u002Fimg.pddpic.com\u002Fmms-goods-image\u002F2025-09-09\u002F002ef6bd-8d9b-490c-959a-182855602e7c.jpeg.a.jpeg",
+            "skuIdList": [1778842615487, 1781803699482, 1781803699484, 1781803699485, 1781803699490],
+            "isSingleSku": false,
+            "salesTip": "",
+            "isFav": true,
+            "favoritedTime": 1757640284,
+            "favDate": "9月12日",
+            "tagList": [{
+              "desc": "关注的店",
+              "textColor": "#E02E24",
+              "tagType": 3
+            }, {
+              "desc": "正品发票",
+              "textColor": "#9C9C9C",
+              "tagType": 1
+            }, {
+              "desc": "顺丰包邮",
+              "textColor": "#9C9C9C",
+              "tagType": 1
+            }, {
+              "desc": "正品险",
+              "textColor": "#9C9C9C",
+              "tagType": 1
+            }, {
+              "desc": "退货包运费",
+              "textColor": "#9C9C9C",
+              "tagType": 1
+            }],
+            "detailId": 11714503855,
+            "goodsPageUrl": "goods.html?goods_id=804532954638&_oak_rcto=YWIQZTqbm2RhYY2O639H_n1PO1rc9AW2OEd1eITYqF-srGjArwKrESem&page_from=23",
+            "goodsIcons": [{
+              "tag_series": 2,
+              "tag_id": 20001,
+              "url": "http:\u002F\u002Fimg.pddpic.com\u002Fsocial\u002Fpincard\u002F1\u002Fshare.png",
+              "width": 156,
+              "height": 42
+            }, {
+              "tag_series": 2,
+              "tag_id": 10014,
+              "url": "https:\u002F\u002Fpromotion.pddpic.com\u002Fpromo\u002Fgexinghua\u002F0ac91857-db53-4a63-9c25-3fba32284e8f.png",
+              "width": 78,
+              "height": 42
+            }],
+            "mergePayType": 0,
+            "soldoutStatus": 0,
+            "mallId": 514487514,
+            "mallName": "华为手机专卖店",
+            "mallLogo": "https:\u002F\u002Fimg.pddpic.com\u002Fgoods_mms\u002F2023-08-30\u002F71234c09-e310-45e1-819e-898a2bb3d940_suffix.png",
+            "mallPageUrl": "mall_page.html?mall_id=514487514&msn=tcgx7zed2lgnmdfb4jwrw4ogwu_axbuy&_sop_rcto=YWKXxSWjeW5aIBLu3Ci0VaieTuXTx_3fIjo&has_decoration=1&mall_tab_key=mall_goods",
+            "mallButtonText": "进店逛逛",
+            "mallIcons": [],
+            "mallTagList": [],
+            "mallFullBackTagList": [],
+            "mergePayList": [],
+            "skuSuffixCacheMap": {},
+            "pxqInfo": {
+              "friendAvatarList": [],
+              "pxqTagList": []
+            },
+            "recSimilarUrl": "search_bbk.html?goods_id=804532954638&bbk_scene=rec_sim&scene=img&source=10450&self_info=1",
+            "mktInfo": {},
+            "pRec": null,
+            "ad": null,
+            "goodsPicRichText": [{
+              "url": "https:\u002F\u002Fcommimg.pddpic.com\u002Fupload\u002Ftransaction\u002F0489464a-3165-4d27-b98b-37c731324b17.png.slim.png",
+              "width": 11,
+              "height": 11,
+              "text": "",
+              "displayType": 100
+            }, {
+              "url": "",
+              "text": "抢剩1件",
+              "fontColor": "#E02E24",
+              "fontSize": 12,
+              "displayType": 0
+            }],
+            "goodsPicInfo": {
+              "bgImg": "",
+              "type": 0,
+              "prefixImg": ""
+            },
+            "activityPricePrefix": "补贴价",
+            "activityPriceIcon": "",
+            "neckBarDisplayItems": [],
+            "neckBarContainerStyle": {
+              "backgroundImage": ""
+            }
+          },
+          "804549240391": {
+            "discountRichText": {},
+            "canMergePay": false,
+            "cantMergePayDoc": "售罄下架商品不支持合并支付",
+            "goodsId": 804549240391,
+            "goodsName": "【新品上市】HUAWEI Mate XTs非凡大师智能手机咨询客服有惊喜【30天内发货】",
+            "shortName": "【新品上市】HUAWEI Mate XTs非凡大师智能手机咨询客服有惊喜",
+            "quantity": 0,
+            "groupId": 141418586843,
+            "likeFrom": 23,
+            "isSpike": false,
+            "startTime": -1,
+            "price": 4999900,
+            "isOnSale": false,
+            "thumbUrl": "https:\u002F\u002Fimg.pddpic.com\u002Fgaudit-image\u002F2025-09-04\u002Fc2705fcd5dd1b12fea698c05b5319b8b.jpeg",
+            "hdUrl": "https:\u002F\u002Fimg.pddpic.com\u002Fmms-goods-image\u002F2025-09-04\u002F5e45c616-1d2d-4301-bfc0-86465e5f0f60.jpeg.a.jpeg",
+            "skuIdList": [],
+            "isSingleSku": true,
+            "salesTip": "",
+            "isFav": true,
+            "favoritedTime": 1757381737,
+            "favDate": "9月9日",
+            "tagList": [],
+            "goodsPageUrl": "goods.html?goods_id=804549240391&_oak_rcto=YWJ4n-Gi52EwvHzksrvLNzpaO1rc9AW2OEd1eITYqF-srGjArwKrESem&page_from=23",
+            "mergePayType": 0,
+            "soldoutStatus": 2,
+            "mallId": 994754219,
+            "mallName": "华为智慧生活专卖店",
+            "mallLogo": "https:\u002F\u002Fimg.pddpic.com\u002Fgoods_mms\u002F2023-08-31\u002F3b9ba9fd-87dc-477f-b240-66510769d1f4_suffix.png",
+            "mallPageUrl": "mall_page.html?mall_id=994754219&msn=45573cdtmsivuy7oq3bgbvn2cm_axbuy&_sop_rcto=YWLSSE2bE6bamMJaQhjC6OL-TuXTx_3fIjo&has_decoration=1&mall_tab_key=mall_goods",
+            "mallButtonText": "进店逛逛",
+            "mallIcons": [],
+            "mallTagList": [{
+              "tagDesc": "专区满2000减30"
+            }],
+            "mallFullBackTagList": [],
+            "mergePayList": [],
+            "skuSuffixCacheMap": {},
+            "pxqInfo": {
+              "friendAvatarList": [],
+              "pxqTagList": []
+            },
+            "recSimilarUrl": "search_bbk.html?goods_id=804549240391&bbk_scene=rec_sim&scene=img&source=10450&self_info=1",
+            "mktInfo": {},
+            "pRec": null,
+            "ad": null,
+            "goodsPicRichText": [],
+            "goodsPicInfo": {
+              "bgImg": "",
+              "type": 0,
+              "prefixImg": ""
+            },
+            "activityPricePrefix": "",
+            "activityPriceIcon": "",
+            "neckBarDisplayItems": [],
+            "neckBarContainerStyle": {
+              "backgroundImage": ""
+            }
+          }
+        },
+        "extraPropertiesSet": {
+          "positiveReview": {}
+        },
+        "topPromptPage": 1,
+        "mallSubTotal": {},
+        "promptDisplayData": {},
+        "consoPopupHasMore": true,
+        "consoPopupHasPage": 1,
+        "consoPopupListId": "",
+        "consoPopupTitle": "",
+        "consoPopupRetryCount": 3,
+        "consoPopupFrontControl": {},
+        "favedListInConsoPopup": [],
+        "promptPromotionInfoList": [],
+        "unSelectedDiscountSet": {
+          "804551533601": {},
+          "804532954638": {},
+          "804549240391": {}
+        },
+        "goodsDiscountSet": {},
+        "skuDiscountSet": {},
+        "showDiscountInfo": true,
+        "retryCount": 3,
+        "globalPopupStack": [],
+        "ifUseGlobalPopupStack": true,
+        "goodsIdPageArray": [
+          [],
+          [804551533601, 804532954638, 804549240391]
+        ],
+        "goodsIdPage": {
+          "804551533601": 1,
+          "804532954638": 1,
+          "804549240391": 1
+        },
+        "ifCommodityBackRec": true,
+        "boldFontWeightChange": true,
+        "backRecGoodsDetailList": {},
+        "backRecPopupHasMore": true,
+        "backRecPopupPage": 1,
+        "backRecPopupRetryCount": 3,
+        "backRecListId": "",
+        "ifNeedReloadFavList": false,
+        "sinkGoodsList": [],
+        "commonService": {},
+        "bigPipeModel": "A",
+        "isPreRenderTester": false,
+        "inApp": false,
+        "inNormalApp": false,
+        "isIOS": false,
+        "isWeChatMiniProgram": false,
+        "webpEnable": true,
+        "frontEnv": 6,
+        "transParams": {},
+        "favHash": "c40c15e920",
+        "platform": {
+          "isNativePlatform": false,
+          "version": ""
+        },
+        "hasTabbar": false,
+        "batchListWaitTime": 200,
+        "batchListAutoCoupon": "1",
+        "hasSliderButton": false,
+        "hasSameType": true,
+        "isServerRendered": true,
+        "isFinishInitLoading": true,
+        "showErrorPage": false,
+        "goodsList": [804551533601, 804532954638, 804549240391],
+        "hasMore": false,
+        "isDataLoaded": true,
+        "selectedGoods": [],
+        "cartTrace": "",
+        "topPromptVo": {},
+        "storeSelect": true,
+        "topPromptGoodsIdList": [],
+        "topPromptGoodsList": [],
+        "topPromptHasMore": true,
+        "showTopPromptModal": false,
+        "payPrice": 0,
+        "couponPrice": 0,
+        "discountText": "",
+        "briefCouponInfo": {
+          "showBriefCoupon": false
+        },
+        "discountDisplayArr": [],
+        "consoPopupGoodsList": [],
+        "consoPopupEndMessage": "",
+        "footerProps": {},
+        "skinsConfig": {},
+        "discountDetailInfo": [],
+        "promptFrontControl": {},
+        "backRecFreqControl": true,
+        "backRecPopupGoodsList": [],
+        "backRecPopupEndMessage": "",
+        "soldOutImgs": [],
+        "couponTagPositionGray": true,
+        "newCouponMode": true,
+        "shrinkListSeparatorWidth": 0
+      }
+    };
+  </script>
+  <script>
+    window.ab_window_key = {
+      "412051": 1,
+      "goods_card_coupon_tag_position": 1
+    };
+  </script>
+  <script>
+    window.leo = {
+      "data": {
+        "batch-list-search-prefetch": "600",
+        "home_bold_font_weight_change": "B",
+        "lite-pre-batch-checkout": "A",
+        "js_template": "A",
+        "pre-render-available": "4.80.0",
+        "batch_list_wait_time": "200",
+        "batch_list_auto_coupon": "1",
+        "batch_list_left_slider": "B",
+        "batch_list_soldout_sameType": "A",
+        "mall_new_coupon_mode": "A",
+        "commodity_back_rec": "B"
+      },
+      "csrFallback": false,
+      "fallbackData": {}
+    };
+  </script>
+  <script>
+    window.__webpack_public_path__ = "https://static.pddpic.com/";
+  </script>
+
+  <script>
+    window.__AD_METRICS_CONFIG__ = {
+      "ignoreReportList": {
+        "ad_metrics_error_key_check": ["91327_4745676", "10034_7272441", "10034_536741", "91327_3511668",
+          "91327_3511666", "10034_98834", "10034_398684", "10034_98835", "10034_648235", "10034_5309840",
+          "10034_1889008", "10034_398312", "10034_536740", "10034_536742", "79300_4085305", "79300_536741",
+          "10034_2575313", "79300_536740", "79300_98835"
+        ],
+        "ad_metrics_warn_unexpected": ["41857_2099522", "10388_2099522", "41857_96065", "10388_96065",
+          "41857_2283078", "10388_2283078"
+        ]
+      }
+    };
+  </script>
+
+
+  <script>
+    window.__NAVIGATION_MAP__ = {
+      "download.html": "matthew_download.html",
+      "market_download.html": "undefined.html",
+      "down_market_download.html": "undefined.html",
+      "comm_order_snapshot.html": "undefined.html",
+      "miff_transplantation_pretence.html": "refresh_slew_forlorn.html",
+      "group185.html": "group186.html",
+      "pjlkvgcf.html": "transac_virtual_card_pwd.html",
+      "ddplteec.html": "transac_virtual_card_pwd.html",
+      "svideo_personal.html": "fyxmkief.html?page_key=1",
+      "goods_express.html": "psnl_goods_help.html?_t_module_name=goods_express",
+      "search_view.html": "relative_goods.html?__rp_name=search_view"
+    };
+  </script>
+
+
+  <script>
+    window.__CDN_IMG__ = {
+      "useIpFallback": true,
+      "retryLimit": 3,
+      "backupDomainConfigMap": {
+        "dl.pddpic.com": {
+          "dl-1.pddpic.com": 50,
+          "dl-2.pddpic.com": 50
+        },
+        "t00img.yangkeduo.com": {
+          "img-1.pddpic.com": 30,
+          "img-2.pddpic.com": 30,
+          "img-3.pddpic.com": 20,
+          "img-4.pddpic.com": 20
+        },
+        "t13img.yangkeduo.com": {
+          "promotion-1.pddpic.com": 50,
+          "promotion-2.pddpic.com": 30,
+          "promotion-3.pddpic.com": 20
+        },
+        "t20img.yangkeduo.com": {
+          "avatar2-1.pddpic.com": 45,
+          "avatar2-2.pddpic.com": 45,
+          "avatar2-3.pddpic.com": 10
+        },
+        "t22img.yangkeduo.com": {
+          "review-1.pddpic.com": 50,
+          "review-2.pddpic.com": 50,
+          "review-3.pddpic.com": 0
+        },
+        "images.pinduoduo.com": {
+          "images-1.pinduoduo.com": 60,
+          "images-2.pinduoduo.com": 40
+        },
+        "img.pddpic.com": {
+          "img-1.pddpic.com": 30,
+          "img-2.pddpic.com": 30,
+          "img-3.pddpic.com": 20,
+          "img-4.pddpic.com": 20
+        },
+        "t04img.yangkeduo.com": {
+          "t04img-b.yangkeduo.com": 100
+        },
+        "commimg.pddpic.com": {
+          "commimg-1.pddpic.com": 50,
+          "commimg-2.pddpic.com": 50
+        },
+        "promotion.pddpic.com": {
+          "promotion-1.pddpic.com": 50,
+          "promotion-2.pddpic.com": 30,
+          "promotion-3.pddpic.com": 20
+        },
+        "funimg.pddpic.com": {
+          "funimg-1.pddpic.com": 50,
+          "funimg-2.pddpic.com": 50
+        },
+        "avatar.pddpic.com": {
+          "avatar-b.pddpic.com": 100
+        },
+        "avatar2.pddpic.com": {
+          "avatar2-1.pddpic.com": 50,
+          "avatar2-2.pddpic.com": 50
+        },
+        "avatar3.pddpic.com": {
+          "avatar3-1.pddpic.com": 50,
+          "avatar3-2.pddpic.com": 50
+        },
+        "review.pddpic.com": {
+          "review-1.pddpic.com": 50,
+          "review-2.pddpic.com": 50,
+          "review-3.pddpic.com": 0
+        }
+      }
+    };
+  </script>
+
+
+  <script>
+    window.__ERROR_SAMPLE_RATE__ = 1;
+  </script>
+
+
+  <script>
+    window.__CMT_HOST__ = 'apm.pinduoduo.com';
+  </script>
+
+
+  <script>
+    window.__CMT_AMPLIFY_RATE__ = 1;
+  </script>
+
+
+  <link href="https://static.pddpic.com/assets/css/react_transac_batch_list_5cc78e9ce36a610fca36.css" rel="stylesheet">
+
+
+
+
+  <script type="text/javascript" src="https://static.pddpic.com/assets/js/vendor_7aa705736cdd3dbf5e03.js"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://static.pddpic.com/assets/js/react_pdd_0c6c6954fa8d0d844e99.js"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript"
+    src="https://static.pddpic.com/assets/js/react_transac_batch_list_5cc78e9ce36a610fca36.js" crossorigin="anonymous">
+  </script>
+
+
+
+  <script>
+    window;
+  </script>
+</body>
+
+</html>

@@ -52,12 +52,12 @@ export default function PddPage() {
   useEffect(() => {
     const fetchLikesData = async () => {
       try {
-        const response = await fetch("/likes.json");
-        if (!response.ok) {
-          throw new Error("Failed to fetch likes data");
-        }
-        const data = await response.json();
-        setLikesData(data);
+        // const response = await fetch("/likes.json");
+        // if (!response.ok) {
+        //   throw new Error("Failed to fetch likes data");
+        // }
+        // const data = await response.json();
+        setLikesData(JsonData);
       } catch (err) {
         setLikesData(JsonData);
         // setError(err instanceof Error ? err.message : "Unknown error");
@@ -78,7 +78,8 @@ export default function PddPage() {
     // window.open(`https://mobile.yangkeduo.com/${item.goodsPageUrl}`, "_blank");
     const url = `pinduoduo://com.xunmeng.pinduoduo/order_checkout.html?sku_id=${item.skuIdList[0]}&goods_id=${item.goodsId}&goods_number=1`;
     console.log("url", url);
-    window.open(url, "_blank");
+    // window.open(url, "_blank");
+    window.location.href = url;
   };
 
   if (loading) {
@@ -157,9 +158,9 @@ export default function PddPage() {
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50">
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      {/* <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         商品信息
-                      </th>
+                      </th> */}
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         SKU ID
                       </th>
@@ -182,15 +183,8 @@ export default function PddPage() {
                           key={`${item.goodsId}-${skuId}`}
                           className="hover:bg-gray-50"
                         >
-                          <td className="px-6 py-4 whitespace-nowrap">
+                          {/* <td className="px-6 py-4 whitespace-nowrap">
                             <div className="flex items-center space-x-3">
-                              {/* <Image
-                                src={item.thumbUrl}
-                                alt={item.shortName}
-                                width={60}
-                                height={60}
-                                className="rounded-lg object-cover"
-                              /> */}
                               <div className="flex-1 min-w-0">
                                 <p className="text-sm font-medium text-gray-900 truncate">
                                   {item.shortName}
@@ -213,7 +207,7 @@ export default function PddPage() {
                                 </div>
                               </div>
                             </div>
-                          </td>
+                          </td> */}
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                             {skuId}
                           </td>
