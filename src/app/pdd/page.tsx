@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
+import JsonData from "./likes.json";
 // 定义数据类型
 interface Tag {
   desc: string;
@@ -59,7 +59,8 @@ export default function PddPage() {
         const data = await response.json();
         setLikesData(data);
       } catch (err) {
-        setError(err instanceof Error ? err.message : "Unknown error");
+        setLikesData(JsonData);
+        // setError(err instanceof Error ? err.message : "Unknown error");
       } finally {
         setLoading(false);
       }
