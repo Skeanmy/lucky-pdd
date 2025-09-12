@@ -2,6 +2,15 @@
 
 import { useState, useEffect } from "react";
 import JsonData from "./likes.json";
+
+const skuType = {
+  1778825864948: "紫色+1t",
+  1778842615487: "黑色+512",
+  1781803699482: "白色+1t",
+  1781803699484: "紫色+512",
+  1781803699485: "紫色+1t",
+  1781803699490: "黑色+1t",
+};
 // 定义数据类型
 interface Tag {
   desc: string;
@@ -169,7 +178,7 @@ export default function PddPage() {
                         商品 ID
                       </th>
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        价格
+                        类型
                       </th>
 
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -184,31 +193,6 @@ export default function PddPage() {
                           key={`${item.goodsId}-${skuId}`}
                           className="hover:bg-gray-50"
                         >
-                          {/* <td className="px-6 py-4 whitespace-nowrap">
-                            <div className="flex items-center space-x-3">
-                              <div className="flex-1 min-w-0">
-                                <p className="text-sm font-medium text-gray-900 truncate">
-                                  {item.shortName}
-                                </p>
-                                <div className="flex flex-wrap gap-1 mt-1">
-                                  {item.tagList
-                                    .slice(0, 2)
-                                    .map((tag, index) => (
-                                      <span
-                                        key={index}
-                                        className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium"
-                                        style={{
-                                          backgroundColor: tag.textColor + "20",
-                                          color: tag.textColor,
-                                        }}
-                                      >
-                                        {tag.desc}
-                                      </span>
-                                    ))}
-                                </div>
-                              </div>
-                            </div>
-                          </td> */}
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                             {skuId}
                           </td>
@@ -218,13 +202,8 @@ export default function PddPage() {
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                             <div className="flex flex-col">
                               <span className="font-semibold text-red-600">
-                                ¥{formatPrice(item.price)}
+                                {skuType[skuId] || ""}
                               </span>
-                              {item.activityPricePrefix && (
-                                <span className="text-xs text-gray-500">
-                                  {item.activityPricePrefix}
-                                </span>
-                              )}
                             </div>
                           </td>
 
