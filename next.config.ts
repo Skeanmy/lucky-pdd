@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   output: "export",
   distDir: "docs",
-  trailingSlash: true,
+  // trailingSlash: true,
   images: {
     unoptimized: true,
   },
